@@ -44,8 +44,8 @@ CREATE TABLE sessions
 CREATE TABLE players_sessions
 (
   id SERIAL8 primary key,
-  player_id INT8 references player(id),
-  session_id INT8 references session(id),
-  result_id INT8 references result(id,
+  player_id INT8 references players(id),
+  session_id INT8 references sessions(id),
+  result_id INT8 references results(id),
   points INT8
 );

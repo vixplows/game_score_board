@@ -163,7 +163,7 @@ session1 = ({
   "game_id" => game1(id),
   "date" => "2017-06-17",
   "start_time" => "16:05",
-  "finish_time" => "17:45"
+  "end_time" => "17:45"
   })
 
 session1.save()
@@ -172,7 +172,7 @@ session2 = ({
   "game_id" => game2(id),
   "date" => "2017-06-14",
   "start_time" => "18:30",
-  "finish_time" => "19:30"
+  "end_time" => "19:30"
   })
 
 session2.save()
@@ -181,7 +181,7 @@ session3 = ({
   "game_id" => game3.id,
   "date" => "2017-06-02",
   "start_time" => "13:00",
-  "finish_time" => "14:10"
+  "end_time" => "14:10"
   })
 
 session3.save()
@@ -190,7 +190,7 @@ session4 = ({
   "game_id" => game4.id,
   "date" => "2017-04-24",
   "start_time" => "19:45",
-  "finish_time" => "20:33"
+  "end_time" => "20:33"
   })
 
 session4.save()
@@ -199,7 +199,7 @@ session5 = ({
   "game_id" => game5.id,
   "date" => "2016-12-10",
   "start_time" => "21:10",
-  "finish_time" => "22:20"
+  "end_time" => "22:20"
   })
 
 session5.save()
@@ -208,7 +208,7 @@ session6 = ({
   "game_id" => game3.id,
   "date" => "2016-12-10",
   "start_time" => "20:00",
-  "finish_time" => "20:55"
+  "end_time" => "20:55"
   })
 
 session6.save
