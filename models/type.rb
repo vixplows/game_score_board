@@ -10,9 +10,14 @@ class Type
   end
 
   def save()
-    sql = "INSERT INTO types (name) VALUE ('#{@name}') RETURNING *"
+    sql = "INSERT INTO types (name) VALUES ('#{@name}') RETURNING *"
     results = SqlRunner.run(sql).first
     @id = results['id'].to_i
+  end
+
+  def self.delete_all
+    sql = "DELETE FROM types"
+    SqlRunner.run(sql)
   end
 
 end

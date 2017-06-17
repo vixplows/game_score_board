@@ -6,16 +6,21 @@ class Session
 
   def initialize(options)
     @id = nil || options['id'].to_i
-    @game_id = options['game-id'].to_i
+    @game_id = options['game_id'].to_i
     @date = options['date']
     @start_time = options['start_time']
     @end_time = options['end_time']
   end
 
   def save()
-    sql = "INSERT INTO sessions (game_id, date, start_time, end_tie) VALUE (#{@game_id}, '#{date}', '#{@start_time}', '#{@end_time}') RETURNING *"
+    sql = "INSERT INTO sessions (game_id, date, start_time, end_time) VALUES (#{@game_id}, '#{date}', '#{@start_time}', '#{@end_time}') RETURNING *"
     results = SqlRunner.run(sql).first
     @id = results['id'].to_i
+  end
+
+  def self.delete_all
+    sql = "DELETE FROM sessions"
+    SqlRunner.run(sql)
   end
 
 end

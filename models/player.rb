@@ -10,9 +10,14 @@ class Player
   end
 
   def save()
-    sql = "INSERT INTO players (name) VALUE ('#{@name}') RETURNING *"
+    sql = "INSERT INTO players (name) VALUES ('#{@name}') RETURNING *"
     results = SqlRunner.run(sql).first
     @id = results['id'].to_i
+  end
+
+  def self.delete_all
+    sql = "DELETE FROM players"
+    SqlRunner.run(sql)
   end
 
 end

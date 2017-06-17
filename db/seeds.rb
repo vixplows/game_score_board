@@ -41,6 +41,8 @@ type5 = Type.new ({
   "name" => "Dice"
   })
 
+type5.save()
+
 game1 = Game.new({
   "name" => "Scrabble",
   "type_id" => type3.id
@@ -159,8 +161,8 @@ player4 = Player.new ({
 
 player4.save()
 
-session1 = ({
-  "game_id" => game1(id),
+session1 = Session.new ({
+  "game_id" => game1.id,
   "date" => "2017-06-17",
   "start_time" => "16:05",
   "end_time" => "17:45"
@@ -168,8 +170,8 @@ session1 = ({
 
 session1.save()
 
-session2 = ({
-  "game_id" => game2(id),
+session2 = Session.new ({
+  "game_id" => game2.id,
   "date" => "2017-06-14",
   "start_time" => "18:30",
   "end_time" => "19:30"
@@ -177,7 +179,7 @@ session2 = ({
 
 session2.save()
 
-session3 = ({
+session3 = Session.new ({
   "game_id" => game3.id,
   "date" => "2017-06-02",
   "start_time" => "13:00",
@@ -186,7 +188,7 @@ session3 = ({
 
 session3.save()
 
-session4 = ({
+session4 = Session.new ({
   "game_id" => game4.id,
   "date" => "2017-04-24",
   "start_time" => "19:45",
@@ -195,7 +197,7 @@ session4 = ({
 
 session4.save()
 
-session5 = ({
+session5 = Session.new ({
   "game_id" => game5.id,
   "date" => "2016-12-10",
   "start_time" => "21:10",
@@ -204,7 +206,7 @@ session5 = ({
 
 session5.save()
 
-session6 = ({
+session6 = Session.new ({
   "game_id" => game3.id,
   "date" => "2016-12-10",
   "start_time" => "20:00",
@@ -213,7 +215,7 @@ session6 = ({
 
 session6.save
 
-player_session1 = ({
+player_session1 = PlayerSession.new ({
   "player_id" => player1.id,
   "session_id" => session1.id,
   "result_id" => result1.id,
@@ -222,7 +224,7 @@ player_session1 = ({
 
 player_session1.save()
 
-player_session2 = ({
+player_session2 = PlayerSession.new ({
   "player_id" => player2.id,
   "session_id" => session1.id,
   "result_id" => result2.id,
@@ -231,7 +233,7 @@ player_session2 = ({
 
 player_session2.save()
 
-player_session3 = ({
+player_session3 = PlayerSession.new ({
   "player_id" => player1.id,
   "session_id" => session2.id,
   "result_id" => result1.id,
@@ -240,7 +242,7 @@ player_session3 = ({
 
 player_session3.save()
 
-player_session4 = ({
+player_session4 = PlayerSession.new ({
   "player_id" => player2.id,
   "session_id" => session2.id,
   "result_id" => result2.id,
@@ -249,7 +251,7 @@ player_session4 = ({
 
 player_session4.save()
 
-player_session5 = ({
+player_session5 = PlayerSession.new ({
   "player_id" => player1.id,
   "session_id" => session3.id,
   "result_id" => result2.id,
@@ -258,7 +260,7 @@ player_session5 = ({
 
 player_session5.save()
 
-player_session6 = ({
+player_session6 = PlayerSession.new ({
   "player_id" => player3.id,
   "session_id" => session3.id,
   "result_id" => result1.id,
@@ -267,7 +269,7 @@ player_session6 = ({
 
 player_session6.save()
 
-player_session7 = ({
+player_session7 = PlayerSession.new ({
   "player_id" => player3.id,
   "session_id" => session4.id,
   "result_id" => result1.id,
@@ -276,7 +278,7 @@ player_session7 = ({
 
 player_session7.save()
 
-player_session8 = ({
+player_session8 = PlayerSession.new ({
   "player_id" => player4.id,
   "session_id" => session4.id,
   "result_id" => result2.id,
@@ -285,7 +287,7 @@ player_session8 = ({
 
 player_session8.save()
 
-player_session9 = ({
+player_session9 = PlayerSession.new ({
   "player_id" => player1.id,
   "session_id" => session5.id,
   "result_id" => result4.id,
@@ -294,7 +296,7 @@ player_session9 = ({
 
 player_session9.save()
 
-player_session10 = ({
+player_session10 = PlayerSession.new ({
   "player_id" => player4.id,
   "session_id" => session5.id,
   "result_id" => result4.id,
@@ -303,7 +305,7 @@ player_session10 = ({
 
 player_session10.save()
 
-player_session11 = ({
+player_session11 = PlayerSession.new ({
   "player_id" => player2.id,
   "session_id" => session6.id,
   "result_id" => result3.id,
@@ -312,7 +314,7 @@ player_session11 = ({
 
 player_session11.save()
 
-player_session12 = ({
+player_session12 = PlayerSession.new ({
   "player_id" => player3.id,
   "session_id" => session6.id,
   "result_id" => result3.id,

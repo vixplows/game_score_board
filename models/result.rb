@@ -11,8 +11,13 @@ class Result
 
   def save()
     sql = "INSERT INTO results (tag) VALUES ('#{tag}') RETURNING *"
-    results = SqlRunner.rub(sql).first
+    results = SqlRunner.run(sql).first
     @id = results['id'].to_i
+  end
+
+  def self.delete_all
+    sql = "DELETE FROM results"
+    SqlRunner.run(sql)
   end
 
 end
