@@ -322,3 +322,6 @@ player_session12 = PlayerSession.new ({
   })
 
 player_session12.save()
+
+binding.pry
+nil

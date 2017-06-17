@@ -16,9 +16,15 @@ class Game
     @id = results['id'].to_i
   end
 
-  def self.delete_all
+  def self.delete_all()
     sql = "DELETE FROM games"
     SqlRunner.run(sql)
+  end
+
+  def self.all()
+    sql = "SELECT * FROM games"
+    results = SqlRunner.run(sql)
+    return results.map {|game| Game.new(game)}
   end
 
 end
