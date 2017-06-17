@@ -20,4 +20,10 @@ class Player
     SqlRunner.run(sql)
   end
 
+  def self.all()
+    sql = "SELECT * FROM players"
+    results = SqlRunner.run(sql)
+    return results.map {|player| Player.new(player)}
+  end
+
 end
