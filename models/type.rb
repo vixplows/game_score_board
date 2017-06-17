@@ -26,4 +26,11 @@ class Type
     return results.map {|type| Type.new(type)}
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM types WHERE id = #{id}"
+    results = SqlRunner.run(sql).first
+    return Type.new(results)
+  end
+
+
 end
