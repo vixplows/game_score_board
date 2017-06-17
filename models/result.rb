@@ -20,4 +20,10 @@ class Result
     SqlRunner.run(sql)
   end
 
+  def self.all()
+    sql = "SELECT * FROM results"
+    results = SqlRunner.run(sql)
+    return results.map {|result| Result.new(result)}
+  end
+
 end
