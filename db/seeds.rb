@@ -128,3 +128,195 @@ result3 = Result.new ({
   })
 
 result3.save()
+
+result4 = Result.new ({
+  "tag" => "In progress"
+  })
+
+result4.save()
+
+player1 = Player.new ({
+  "name" => "Jezza"
+  })
+
+player1.save()
+
+player2 = Player.new ({
+  "name" => "Theresa"
+  })
+
+player2.save()
+
+player3 = Player.new ({
+  "name" => "Po"
+  })
+
+player3.save()
+
+player4 = Player.new ({
+  "name" => "Dipsy"
+  })
+
+player4.save()
+
+session1 = ({
+  "game_id" => game1(id),
+  "date" => "2017-06-17",
+  "start_time" => "16:05",
+  "finish_time" => "17:45"
+  })
+
+session1.save()
+
+session2 = ({
+  "game_id" => game2(id),
+  "date" => "2017-06-14",
+  "start_time" => "18:30",
+  "finish_time" => "19:30"
+  })
+
+session2.save()
+
+session3 = ({
+  "game_id" => game3.id,
+  "date" => "2017-06-02",
+  "start_time" => "13:00",
+  "finish_time" => "14:10"
+  })
+
+session3.save()
+
+session4 = ({
+  "game_id" => game4.id,
+  "date" => "2017-04-24",
+  "start_time" => "19:45",
+  "finish_time" => "20:33"
+  })
+
+session4.save()
+
+session5 = ({
+  "game_id" => game5.id,
+  "date" => "2016-12-10",
+  "start_time" => "21:10",
+  "finish_time" => "22:20"
+  })
+
+session5.save()
+
+session6 = ({
+  "game_id" => game3.id,
+  "date" => "2016-12-10",
+  "start_time" => "20:00",
+  "finish_time" => "20:55"
+  })
+
+session6.save
+
+player_session1 = ({
+  "player_id" => player1.id,
+  "session_id" => session1.id,
+  "result_id" => result1.id,
+  "points" => 201
+  })
+
+player_session1.save()
+
+player_session2 = ({
+  "player_id" => player2.id,
+  "session_id" => session1.id,
+  "result_id" => result2.id,
+  "points" => 101
+  })
+
+player_session2.save()
+
+player_session3 = ({
+  "player_id" => player1.id,
+  "session_id" => session2.id,
+  "result_id" => result1.id,
+  "points" => 99
+  })
+
+player_session3.save()
+
+player_session4 = ({
+  "player_id" => player2.id,
+  "session_id" => session2.id,
+  "result_id" => result2.id,
+  "points" => 64
+  })
+
+player_session4.save()
+
+player_session5 = ({
+  "player_id" => player1.id,
+  "session_id" => session3.id,
+  "result_id" => result2.id,
+  "points" => 87
+  })
+
+player_session5.save()
+
+player_session6 = ({
+  "player_id" => player3.id,
+  "session_id" => session3.id,
+  "result_id" => result1.id,
+  "points" => 94
+  })
+
+player_session6.save()
+
+player_session7 = ({
+  "player_id" => player3.id,
+  "session_id" => session4.id,
+  "result_id" => result1.id,
+  "points" => nil
+  })
+
+player_session7.save()
+
+player_session8 = ({
+  "player_id" => player4.id,
+  "session_id" => session4.id,
+  "result_id" => result2.id,
+  "points" => nil
+  })
+
+player_session8.save()
+
+player_session9 = ({
+  "player_id" => player1.id,
+  "session_id" => session5.id,
+  "result_id" => result4.id,
+  "points" => nil
+  })
+
+player_session9.save()
+
+player_session10 = ({
+  "player_id" => player4.id,
+  "session_id" => session5.id,
+  "result_id" => result4.id,
+  "points" => nil
+  })
+
+player_session10.save()
+
+player_session11 = ({
+  "player_id" => player2.id,
+  "session_id" => session6.id,
+  "result_id" => result3.id,
+  "points" => nil
+  })
+
+player_session11.save()
+
+player_session12 = ({
+  "player_id" => player3.id,
+  "session_id" => session6.id,
+  "result_id" => result3.id,
+  "points" => nil
+  })
+
+player_session12.save()
