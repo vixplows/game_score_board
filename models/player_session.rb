@@ -29,4 +29,10 @@ class PlayerSession
     return results.map {|player_session| PlayerSession.new(player_session)}
   end
 
+  def self.find(id)
+    sql = "SELECT * FROM players_sessions WHERE id = #{id}"
+    results = SqlRunner.run(sql).first
+    return PlayerSession.new(results)
+  end
+
 end
