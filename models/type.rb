@@ -20,4 +20,10 @@ class Type
     SqlRunner.run(sql)
   end
 
+  def self.all()
+    sql = "SELECT * FROM types"
+    results = SqlRunner.run(sql)
+    return results.map {|type| Type.new(type)}
+  end
+
 end
