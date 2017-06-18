@@ -24,12 +24,24 @@ class Session
     return game.name
   end
 
-#get duration of game end_time minus start_time.Currently rounding to nearest hour how get more precise duration back??
+#get duration of game end_time minus start_time.Currently rounding to nearest hour how get exact minutes back??
   def duration()
     session = Session.find(@id)
-    duration = session.end_time.to_f - session.start_time.to_f
-    return duration
+    duration = (session.end_time.to_f - session.start_time.to_f)*60
+    return duration.to_i
   end
+
+  #returning a table with players, points and results from the players_sessions table for a specific session_id
+    def results()
+      sql = "SELECT results.tag, players.name, players_sessions.points
+        FROM results, players, players_sessions, sessions
+        WHERE results.id = players_sessions.result_id
+        AND players.id = players_sessions.player_id
+        AND players_sessions.session_id = sessions.id
+        AND sessions.id = #{id}"
+      results = SqlRunner.run(sql)
+      return results
+    end
 
   def self.delete_all()
     sql = "DELETE FROM sessions"

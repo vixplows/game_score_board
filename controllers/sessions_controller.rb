@@ -23,5 +23,6 @@ end
 
 get '/sessions/:id' do
   @session = Session.find(params['id'])
+  @results = @session.results()
   erb(:"sessions/show")
 end

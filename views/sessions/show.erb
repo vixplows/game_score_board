@@ -1,7 +1,6 @@
-<h2>Score Card: <%= @session.game %></h2>
-
-<h3>Date: <%= @session.date %></h3>
-<h3>Duration to the nearest hour!: <%= @session.duration %></h3>
+<h1>Score Card<h1>
+<h2><%= @session.date %></h2>
+<h2><%= @session.game %></h2>
 
 <table>
   <tr>
@@ -12,12 +11,15 @@
     <th>Result</th>
     <th></th>
   </tr>
+  <% for result in @results %>
   <tr>
-    <td>players names here</td>
+    <td><%= result['name'] %></td>
     <td>|</td>
-    <td>players points here</td>
+    <td><%= result['points'] %></td>
     <td>|</td>
-    <td>players result here</td>
+    <td><%= result['tag'] %></td>
   </tr>
-
+  <% end %>
 </table>
+
+<h3>Duration: <%= @session.duration %> minutes</h3>
