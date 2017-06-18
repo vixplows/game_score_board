@@ -5,6 +5,24 @@
 
 <h2>Leader Board</h2>
 <table>
+  <tr>
+    <th>Name</th>
+    <th></th>
+    <th>Won</th>
+    <th></th>
+    <th>Lost</th>
+    <th></th>
+    <th>Drew</th>
+  </tr>
+  <% for player in @players %>
+  <tr>
+    <td><%= player.name %></td>
+    <td>|</td>
+    <td>number tbc</td>
+    <td>|</td>
+    <td>number tbc</td>
+    <td>|</td>
+    <td>number tbc</td>
+  </tr>
+  <% end %>
 </table>
-
-<h2>Most Recent Sessions</h2>
