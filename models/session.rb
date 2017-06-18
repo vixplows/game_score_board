@@ -18,6 +18,12 @@ class Session
     @id = results['id'].to_i
   end
 
+#get game name for session
+  def game
+    game = Game.find(@game_id)
+    return game.name
+  end
+
   def self.delete_all
     sql = "DELETE FROM sessions"
     SqlRunner.run(sql)

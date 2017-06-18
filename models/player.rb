@@ -21,6 +21,18 @@ class Player
     return plays.count
   end
 
+#returns results_id for sessions played by player. Can this be used to provide input to leaderboard or player page???
+  def results()
+    sql = "SELECT players_sessions.result_id FROM players, players_sessions WHERE players.id = #{id} AND players_sessions.player_id = players.id"
+    results = SqlRunner.run(sql)
+    return results.values
+  end
+
+  def session()
+    sql = "SELECT * FROM players, sessions"
+    
+  end
+
   def won()
     sql = "SELECT * FROM players, players_sessions, results WHERE players.id = #{id} AND players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Won'"
     wins = SqlRunner.run(sql)
@@ -55,6 +67,4 @@ class Player
     results = SqlRunner.run(sql).first
     return Player.new(results)
   end
-
-
 end

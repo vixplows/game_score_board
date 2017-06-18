@@ -1,1 +1,16 @@
 <h1>Sessions</h1>
+
+<a href="/sessions/new">Add New Session</a>
+
+<div id="session-wrapper">
+  <% for session in @sessions %>
+
+  <div class="session">
+    <h3><a href="/sessions/<%= session.id %>"><%= session.date %></a></h3>
+    <p>Game: <%= session.game %></p>
+    <p>Start Time: <%= session.start_time %></p>
+    <p>End Time: <%= session.end_time %></p>
+  </div>
+
+  <% end %>
+</div>

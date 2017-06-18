@@ -1,0 +1,53 @@
+<h1>Add new session</h1>
+
+<form method="post" action="/sessions">
+  <div class="form-el">
+  
+  <div class=form-el>
+    <label for="select_game">Select Game:</label>
+    <select id="select_game" name="game_id">
+      <% for game in @games %>
+      <option value=<%= game.id %>><%= game.name %></option>
+      <% end %>
+    </select>
+   </div> 
+
+  <div class=form-el>
+    <label for="date">Date:</label>
+    <input type="date" name="date" id="date">
+  </div>
+
+  <div class=form-el>
+    <label for="start_time">Start Time:</label>
+    <input type="time" name="start_time" id="start_time">
+  </div>
+
+  <div class=form-el>
+    <label for="end_time">End Time:</label>
+    <input type="time" name="end_time" id="start_time">
+  </div>
+
+  <div class=form-el>
+    <label for="player">Player</label>
+    <select id="select_player" name="player_id">
+      <% for player in @players %>
+      <option value= <%= player.id %>><%= player.name %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class=form-el>
+    <label for="player">Player</label>
+    <select id="select_player" name="player_id">
+      <% for player in @players %>
+      <option value= <%= player.id %>><%= player.name %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class="form-el">
+    <input type="submit" value="Add new session">
+  </div>
+</form>
+
+<!-- # for now only allowing two player games to be created - need to find out how to set it to say select number of players, then only show that amount of player name input fields, and even better if once selected a name for a field - then that name did not appear in the next select box as no longer available to select! -->
