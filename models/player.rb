@@ -15,7 +15,7 @@ class Player
     @id = results['id'].to_i
   end
 
-# trying to return an array of hashes of all the existing players_sessions associated with one player
+# returns hashes with values of all the existing players_sessions associated with one player
   def session()
     sql = "SELECT * FROM players_sessions INNER JOIN players
       ON players.id = players_sessions.player_id
@@ -24,17 +24,12 @@ class Player
   return players_sessions.values
   end
 
-# # want number of total games won for individual player
-#   def won()
-#     # select all rows for a specific player from the player_sessions table where the player_id matches the players id in the players table
-#     sql = "SELECT * FROM players_sessions INNER JOIN players ON players.id = players_sessions.player_id WHERE players_sessions.player_id = #{@player.id}"
-#     player_sessions = SqlRunner(sql).first
-#     return Player.new(player_sessions)
-#     # select all result_id that are a win in the associated results table
-#     # save result_ids == to a win in a win_results array
-#     # return a count of the total number in the win_results array
-#     # show win totals for each player in leader board table on homepage and in player details on player performance page but with game details too in the latter
-#   end
+# want number of total games won for individual player
+  def won()
+    sql = "SELECT * FROM players, players_sessions, results WHERE players.id = #{id} AND players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Won'"
+    wins = SqlRunner.run(sql)
+    return wins.count
+  end
 
   def self.delete_all
     sql = "DELETE FROM players"
