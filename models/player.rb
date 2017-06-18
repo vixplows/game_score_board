@@ -17,8 +17,8 @@ class Player
 
   def play()
     sql = "SELECT * FROM players, players_sessions WHERE players.id = #{id} AND players_sessions.player_id = players.id"
-    wins = SqlRunner.run(sql)
-    return wins.count
+    plays = SqlRunner.run(sql)
+    return plays.count
   end
 
   def won()

@@ -8,6 +8,8 @@
   <tr>
     <th>Name</th>
     <th></th>
+    <th>Played</th>
+    <th></th>
     <th>Won</th>
     <th></th>
     <th>Lost</th>
@@ -18,11 +20,13 @@
   <tr>
     <td><%= player.name %></td>
     <td>|</td>
-    <td>number tbc</td>
+    <td><%= player.play %></td>
     <td>|</td>
-    <td>number tbc</td>
+    <td><%= player.won %></td>
     <td>|</td>
-    <td>number tbc</td>
+    <td><%= player.lost %></td>
+    <td>|</td>
+    <td><%= player.drew %></td>
   </tr>
   <% end %>
 </table>
