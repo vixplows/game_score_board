@@ -16,6 +16,13 @@ class Game
     @id = results['id'].to_i
   end
 
+#return number of session plays of a game.
+  def sessions()
+    sql = "SELECT sessons.id FROM sessions, games WHERE sessions.game_id = games.id AND games.id = #{id}"
+    sessions = SqlRunner.run(sql)
+    return sessions.count
+  end
+
   def self.delete_all()
     sql = "DELETE FROM games"
     SqlRunner.run(sql)
