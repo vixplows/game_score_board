@@ -165,7 +165,7 @@ session1 = Session.new ({
   "game_id" => game1.id,
   "date" => "2017-06-17",
   "start_time" => "16:05",
-  "end_time" => "17:45"
+  "end_time" => "20:45"
   })
 
 session1.save()

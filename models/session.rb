@@ -19,12 +19,19 @@ class Session
   end
 
 #get game name for session
-  def game
+  def game()
     game = Game.find(@game_id)
     return game.name
   end
 
-  def self.delete_all
+#get duration of game end_time minus start_time.Currently rounding to nearest hour how get more precise duration back??
+  def duration()
+    session = Session.find(@id)
+    duration = session.end_time.to_f - session.start_time.to_f
+    return duration
+  end
+
+  def self.delete_all()
     sql = "DELETE FROM sessions"
     SqlRunner.run(sql)
   end

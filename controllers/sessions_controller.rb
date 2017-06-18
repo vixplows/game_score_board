@@ -22,5 +22,6 @@ post '/sessions' do
 end
 
 get '/sessions/:id' do
+  @session = Session.find(params['id'])
   erb(:"sessions/show")
 end
