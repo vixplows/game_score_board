@@ -377,5 +377,14 @@ player_session16 = PlayerSession.new ({
 
 player_session16.save()
 
+player_session17 = PlayerSession.new ({
+  "player_id" => player1.id,
+  "session_id" => session8.id,
+  "result_id" => result2.id,
+  "points" => 125
+  })
+
+player_session17.save()
+
 binding.pry
 nil

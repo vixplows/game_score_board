@@ -15,6 +15,12 @@ class Player
     @id = results['id'].to_i
   end
 
+  def play()
+    sql = "SELECT * FROM players, players_sessions WHERE players.id = #{id} AND players_sessions.player_id = players.id"
+    wins = SqlRunner.run(sql)
+    return wins.count
+  end
+
   def won()
     sql = "SELECT * FROM players, players_sessions, results WHERE players.id = #{id} AND players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Won'"
     wins = SqlRunner.run(sql)
