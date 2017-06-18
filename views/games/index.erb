@@ -1,1 +1,11 @@
 <h1>Games</h1>
+
+<div id="game-wrapper">
+  <% for game in @games %>
+
+  <div class-"game">
+    <h3><a href="/games/<%= game.id %>"><%= game.name %></a></h3>
+  </div>
+
+  <% end %>
+</div>
