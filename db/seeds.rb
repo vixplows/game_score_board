@@ -86,7 +86,7 @@ game6 = Game.new({
 game6.save()
 
 game7 = Game.new ({
-  "name" => "The Settles of Catan",
+  "name" => "The Settlers of Catan",
   "type_id" => type1.id
   })
 
