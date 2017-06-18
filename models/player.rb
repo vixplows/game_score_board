@@ -15,6 +15,15 @@ class Player
     @id = results['id'].to_i
   end
 
+# want number of total games won for individual player
+  def won()
+    # get all the result_id for a player from players_sessions table
+    # select all result_id that are a win in the associated results table
+    # save result_ids == to a win in a win_results array
+    # return a count of the total number in the win_results array
+    # show win totals for each player in leader board table on homepage and in player details on player performance page
+  end
+
   def self.delete_all
     sql = "DELETE FROM players"
     SqlRunner.run(sql)
