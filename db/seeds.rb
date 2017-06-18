@@ -138,25 +138,29 @@ result4 = Result.new ({
 result4.save()
 
 player1 = Player.new ({
-  "name" => "Jezza"
+  "name" => "Jezza",
+  "image" => "/images/jezza.jpg"
   })
 
 player1.save()
 
 player2 = Player.new ({
-  "name" => "Theresa"
+  "name" => "Theresa",
+  "image" => "/images/theresa.jpg"
   })
 
 player2.save()
 
 player3 = Player.new ({
-  "name" => "Po"
+  "name" => "Po",
+  "image" => "/images/po.jpg"
   })
 
 player3.save()
 
 player4 = Player.new ({
-  "name" => "Dipsy"
+  "name" => "Dipsy",
+  "image" => "/images/dipsy.jpg"
   })
 
 player4.save()

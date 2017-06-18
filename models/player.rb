@@ -2,15 +2,16 @@ require_relative('../db/sql_runner')
 
 class Player
 
-  attr_reader :id, :name
+  attr_reader :id, :name, :image
     
   def initialize(options)
     @id = nil || options['id'].to_i
     @name = options['name']
+    @image = options['image']
   end
 
   def save()
-    sql = "INSERT INTO players (name) VALUES ('#{@name}') RETURNING *"
+    sql = "INSERT INTO players (name, image) VALUES ('#{@name}', '#{@image}') RETURNING *"
     results = SqlRunner.run(sql).first
     @id = results['id'].to_i
   end
@@ -21,16 +22,11 @@ class Player
     return plays.count
   end
 
-#returns results_id for sessions played by player. Can this be used to provide input to leaderboard or player page???
+#returns results_id for sessions played by player. Use to provide input for player performance page, like @session.results was used in session score card
   def results()
     sql = "SELECT players_sessions.result_id FROM players, players_sessions WHERE players.id = #{id} AND players_sessions.player_id = players.id"
     results = SqlRunner.run(sql)
-    return results.values
-  end
-
-  def session()
-    sql = "SELECT * FROM players, sessions"
-    
+    return results
   end
 
   def won()

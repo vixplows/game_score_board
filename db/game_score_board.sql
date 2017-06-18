@@ -28,7 +28,8 @@ CREATE TABLE results
 CREATE TABLE players
 (
   id SERIAL8 primary key,
-  name VARCHAR(255) not null
+  name VARCHAR(255) not null,
+  image TEXT
 );
 
 CREATE TABLE sessions

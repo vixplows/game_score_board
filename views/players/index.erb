@@ -1,2 +1,13 @@
 <h1>Players</h1>
 
+<a href="/players/new">Add New Player</a>
+<div id="player-wrapper">
+  <% for player in @players %>
+
+  <div class-"player">
+    <h3><a href="/players/<%= player.id %>">Name: <%= player.name %></a></h3>
+    <img src= "<%= player.image  %>">
+  </div>
+
+  <% end %>
+</div>

@@ -6,3 +6,17 @@ get '/players' do
   @players = Player.all()
   erb(:"players/index")
 end
+
+get '/players/new' do
+  erb(:"sessions/new")
+end
+
+post '/players' do
+  Player.new(params).save
+  redirect to '/players'
+end
+
+get '/players/:id' do
+  @player = Player.find(params['id'])
+  erb(:"sessions/show")
+end
