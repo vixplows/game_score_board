@@ -15,20 +15,22 @@ class Player
     @id = results['id'].to_i
   end
 
-# returns hashes with values of all the existing players_sessions associated with one player
-  def session()
-    sql = "SELECT * FROM players_sessions INNER JOIN players
-      ON players.id = players_sessions.player_id
-      WHERE players_sessions.player_id = #{id}"
-  players_sessions = SqlRunner.run(sql)
-  return players_sessions.values
-  end
-
-# want number of total games won for individual player
   def won()
     sql = "SELECT * FROM players, players_sessions, results WHERE players.id = #{id} AND players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Won'"
     wins = SqlRunner.run(sql)
     return wins.count
+  end
+
+  def lost()
+    sql = "SELECT * FROM players, players_sessions, results WHERE players.id = #{id} AND players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Lost'"
+    losses = SqlRunner.run(sql)
+    return losses.count
+  end
+
+  def drew()
+    sql = "SELECT * FROM players, players_sessions, results WHERE players.id = #{id} AND players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Drew'"
+    draws = SqlRunner.run(sql)
+    return draws.count
   end
 
   def self.delete_all
