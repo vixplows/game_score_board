@@ -18,5 +18,6 @@ end
 
 get '/players/:id' do
   @player = Player.find(params['id'])
-  erb(:"sessions/show")
+  @result = @player.games()
+  erb(:"players/show")
 end
