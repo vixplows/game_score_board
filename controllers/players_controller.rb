@@ -8,7 +8,7 @@ get '/players' do
 end
 
 get '/players/new' do
-  erb(:"sessions/new")
+  erb(:"players/new")
 end
 
 post '/players' do
