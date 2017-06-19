@@ -1,6 +1,6 @@
 <h1><%= @player.name %></h1>
 
-<h3>Session Results:</h3>
+<h3>Player Performance:</h3>
 <table>
   <tr>
     <th>Played</th>
@@ -26,6 +26,10 @@
   </tr>
 </table>
 
+<h3>Latest Session:</h3>
+<p>Date: <%= @player.latest_session['date'] %></p>
+<p>Game: <%= @player.latest_session['name'] %></p>
+
 <h3>Games Played:</h3>
 <table>
     <% games = @player.games %>
@@ -34,13 +38,5 @@
         <td><%= game.name %></td>
     </tr>
     <% end %>
-    
 </table>
 
-<h3>Fun Facts</h3>
-
-<p>Last played on:</p>
-
-<p>Longest game:</p>
-
-<p>Plays with most:</p>
