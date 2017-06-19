@@ -36,6 +36,23 @@ class Player
     return results
   end
 
+  # def all_wins_sorted
+  #   sql = "SELECT players.name FROM results, players, players_sessions, sessions where results.id = players_sessions.result_id AND players.id = players_sessions.player_id AND players_sessions.session_id = sessions.id AND results.tag = 'Won'"
+  #   results = SqlRunner.run(sql)
+  #   for results in results do
+  #     if result['name'] = 
+  #   end
+  # end
+
+  # def self.sort_players_by_wins
+  #   players = Players.all
+  #   for player in players do
+  #     sql = "SELECT * FROM players, players_sessions, results WHERE players.id = #{id} AND players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Won'"
+  #     wins = SqlRunner.run(sql)
+  #     table_input = wins.count
+  #   end
+  # end
+
   def won()
     sql = "SELECT * FROM players, players_sessions, results WHERE players.id = #{id} AND players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Won'"
     wins = SqlRunner.run(sql)

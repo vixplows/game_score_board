@@ -16,6 +16,12 @@ class Game
     @id = results['id'].to_i
   end
 
+  def type
+    sql = "SELECT types.name FROM types, games WHERE types.id = games.type_id AND games.id = #{id}"
+    result = SqlRunner.run(sql).first
+    return result['name']
+  end
+
 #return number of session plays of a game.
   def sessions()
     sql = "SELECT * FROM sessions, games WHERE sessions.game_id = games.id AND games.id = #{id}"
