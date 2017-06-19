@@ -22,12 +22,11 @@ class Game
     return result['name']
   end
 
+# to return all info from sessions table for sessions with specified game id
   def session_list
     sql = "select * from games, sessions where sessions.game_id = games.id and games.id = #{id}"
-    results = SqlRunner.run(sql)
-    sessions = results.map {|session| Session.new(session)}
+    sessions = SqlRunner.run(sql)
     return sessions
-    #list all sessions of this game that have been played in session view - see code in sessions that does this.
   end
 
 #return number of session plays of a game.
