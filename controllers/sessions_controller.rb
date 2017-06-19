@@ -16,8 +16,9 @@ end
 
 post '/sessions' do
   @games = Game.all()
-  Session.new(params).save
-  redirect to '/sessions'
+  session = Session.new(params)
+  session.save
+  redirect to '/sessions'+'/'+session.id.to_s
 end
 
 get '/sessions/:id' do
