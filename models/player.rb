@@ -62,6 +62,11 @@ class Player
     return sum
   end
 
+# trying to get all results for all players ordered by greatest number of wins...
+  def self.sort_results
+    sql = ""
+  end
+
   def self.delete_all
     sql = "DELETE FROM players"
     SqlRunner.run(sql)

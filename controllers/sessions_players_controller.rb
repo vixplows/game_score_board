@@ -13,8 +13,9 @@ get '/sessions/:id/player/new' do
 end
 
 post '/sessions/:id' do
-  PlayerSession.new(params).save
-  redirect to '/sessions'
+  player_session = PlayerSession.new(params)
+  player_session.save()
+  redirect to '/sessions'+'/'+player_session.session_id.to_s
 end
 
 get '/sessions/:id/player/edit' do
