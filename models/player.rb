@@ -1,4 +1,5 @@
 require_relative('../db/sql_runner')
+require('pry-byebug')
 
 class Player
 
@@ -69,6 +70,14 @@ class Player
     sql = "SELECT * FROM players, players_sessions, results WHERE players.id = #{id} AND players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Drew'"
     draws = SqlRunner.run(sql)
     return draws.count
+  end
+
+  def points_total
+    sql = "SELECT players_sessions.points FROM players, players_sessions WHERE players.id = #{id} AND players.id = players_sessions.player_id"
+    results = SqlRunner.run(sql)
+    sum = 0
+    results.each {|session_points| sum += session_points['points'].to_i}
+    return sum
   end
 
   def self.delete_all
