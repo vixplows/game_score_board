@@ -22,6 +22,13 @@ class Game
     return result['name']
   end
 
+#show score_card assocaited with this game_id via the player_sessions table
+  def score_cards
+    sql = "select * from games, sessions, results, players_sessions, players  where players.id = players_sessions.player_id and games.id = #{id} and sessions.game_id = games.id and players_sessions.session_id = sessions.id and results.id = players_sessions.result_id"
+    results = SqlRunner.run(sql)
+    return results
+  end
+
 # to return all info from sessions table for sessions with specified game id
   def session_list
     sql = "select * from games, sessions where sessions.game_id = games.id and games.id = #{id}"

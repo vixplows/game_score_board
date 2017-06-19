@@ -23,3 +23,28 @@
     <% end %>
   </table>
 
+<h3>Results:</h3>
+
+<table>
+  <tr>
+    <th>Date</th>
+    <th>|</th>
+    <th>Players</th>
+    <th></th>
+    <th>Points</th>
+    <th></th>
+    <th>Result</th>
+    <th></th>
+  </tr>
+  <% for result in @results %>
+  <tr>
+    <td><%= result['date'] %></td>
+    <td>|</td>
+    <td><%= result['name'] %></td>
+    <td>|</td>
+    <td><%= result['points'] %></td>
+    <td>|</td>
+    <td><%= result['tag'] %></td>
+  </tr>
+  <% end %>
+</table>
