@@ -18,3 +18,7 @@ post '/sessions/:id' do
   PlayerSession.new(params).save
   redirect to '/sessions'
 end
+
+get '/sessions/:id/player/edit' do
+  erb(:"sessions_players/edit")
+end

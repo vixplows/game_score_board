@@ -25,3 +25,7 @@ get '/sessions/:id' do
   @results = @session.results()
   erb(:"sessions/show")
 end
+
+get '/sessions/:id/edit' do
+  erb(:"sessions/edit")
+end
