@@ -11,11 +11,13 @@
     <th>Wins</th>
     <th>|</th>
   </tr>
+  <tr>
   <% for winner in @winners %>
     <td><%=  winner['name']%></td>
     <td>|</td>
     <td><%=  winner['wins']%></td>
     <td>|</td>
+  </tr>
   <% end %>
 </table>
 
