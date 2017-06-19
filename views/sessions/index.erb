@@ -6,8 +6,7 @@
   <% for session in @sessions %>
 
   <div class="session">
-    <h3><a href="/sessions/<%= session.id %>"><%= session.date %></a></h3>
-    <p>Game: <%= session.game %></p>
+    <h3><a href="/sessions/<%= session.id %>"><%= session.date %> : <%= session.game %></a></h3>
     <p>Start Time: <%= session.start_time %></p>
     <p>End Time: <%= session.end_time %></p>
   </div>
