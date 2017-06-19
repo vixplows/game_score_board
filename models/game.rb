@@ -22,6 +22,10 @@ class Game
     return result['name']
   end
 
+  def session_list
+    
+  end
+
 #return number of session plays of a game.
   def sessions()
     sql = "SELECT * FROM sessions, games WHERE sessions.game_id = games.id AND games.id = #{id}"
