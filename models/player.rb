@@ -23,6 +23,12 @@ class Player
     return plays.count
   end
 
+  def latest_session()
+    sql = "select games.name, sessions.date from players, players_sessions, sessions, games where players.id = #{id} and players.id = players_sessions.player_id and sessions.id = players_sessions.session_id and games.id = sessions.game_id order by date"
+    results = SqlRunner.run(sql).first
+    return results
+  end
+
 #return name of all games player has played sessions of. Refactor so that game name only appears once
   def games()
     sql = "SELECT games.* FROM games, players, sessions, players_sessions WHERE players.id = #{id} AND players.id = players_sessions.player_id AND sessions.game_id = games.id AND players_sessions.session_id = sessions.id"
