@@ -7,7 +7,14 @@ get '/games' do
   erb(:"games/index")
 end
 
+#brings back all sessions - want to bring back only sessions with session games_id that matches the id in the params
 get '/games/:id' do
   @game = Game.find(params['id'])
   erb(:"games/show")
 end
+
+# get '/sessions' do
+#   @sessions = Session.all()
+#   @games = Game.all()
+#   erb(:"sessions/index")
+# end
