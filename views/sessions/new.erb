@@ -27,30 +27,10 @@
     <input type="time" name="end_time" id="start_time">
   </div>
 
-  <div class=form-el>
-    <label for="player">Player</label>
-    <select id="select_player" name="player_id">
-      <% for player in @players %>
-      <option value= <%= player.id %>><%= player.name %></option>
-      <% end %>
-    </select>
-  </div>
-
-  <div class=form-el>
-    <label for="player">Player</label>
-    <select id="select_player" name="player_id">
-      <% for player in @players %>
-      <option value= <%= player.id %>><%= player.name %></option>
-      <% end %>
-    </select>
-  </div>
-
   <div class="form-el">
     <input type="submit" value="Save new session">
   </div>
 </form>
-
-<h2>Add Session Results</h2>
 
 <!-- # for now only allowing two player games to be created - need to find out how to set it to say select number of players, then only show that amount of player name input fields, and even better if once selected a name for a field - then that name did not appear in the next select box as no longer available to select! -->
 <!-- ALSO NEED TO BE ABLE TO ADD IN SCORES FOR NEW SESSION BEST IF CAN DO ON SAME FORM BUT NEED THEN TO BE ABLE TO PULL OUT PLAYERS JUST INPUT... ALTERNATIVELY COULD SAVE SESSION... THEN BRING BACK THE DETAILS AND PUT IN THE RESULTS... -->

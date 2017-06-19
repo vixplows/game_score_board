@@ -1,0 +1,30 @@
+<h2>Add Player Result</h2>
+
+<form method="post" action="/players_sessions">
+  <div class=form-el>
+    <label for="player">Player</label>
+    <select id="select_player" name="player_id">
+      <% for player in @players %>
+      <option value= <%= player.id %>><%= player.name %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class=form-el>
+    <label for="result">Select Result:</label>
+    <select id="select_result" name="result_id">
+      <% for result in @results %>
+      <option value= <%= result.id %>><%= result.tag %></option>
+      <% end %>
+    </select>
+  </div>
+
+  <div class=form-el>
+    <label for="points">Points:</label>
+    <input type="number" name="points" id="points">
+  </div>
+
+  <div class="form-el">
+    <input type="submit" value="Save Player Results">
+  </div>
+</form>
