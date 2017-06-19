@@ -4,12 +4,14 @@
 <table>
   <tr>
     <th>Played</th>
-    <th></th>
+    <th>|</th>
     <th>Won</th>
-    <th></th>
+    <th>|</th>
     <th>Lost</th>
-    <th></th>
+    <th>|</th>
     <th>Drew</th>
+    <th>|</th>
+    <th>Points</th>
   </tr>
   <tr>
     <td><%= @player.play %></td>
@@ -19,6 +21,8 @@
     <td><%= @player.lost %></td>
     <td>|</td>
     <td><%= @player.drew %></td>
+    <td>|</th>
+    <td><%= @player.points_total %></td>
   </tr>
 </table>
 
