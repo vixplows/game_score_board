@@ -25,9 +25,9 @@ class Player
 
 #return name of all games player has played sessions of. Refactor so that game name only appears once
   def games()
-    sql = "SELECT games.name FROM games, players, sessions, players_sessions WHERE players.id = #{id} AND players.id = players_sessions.player_id AND sessions.game_id = games.id AND players_sessions.session_id = sessions.id"
+    sql = "SELECT games.* FROM games, players, sessions, players_sessions WHERE players.id = #{id} AND players.id = players_sessions.player_id AND sessions.game_id = games.id AND players_sessions.session_id = sessions.id"
     results = SqlRunner.run(sql)
-    return results
+    return results.map {|game| Game.new(game)}
   end
 
 #returns results_id for sessions played by player. Use to provide input for player performance page, like @session.results was used in session score card
