@@ -24,41 +24,17 @@ class Player
   end
 
   def latest_session()
-    sql = "select games.name, sessions.date from players, players_sessions, sessions, games where players.id = #{id} and players.id = players_sessions.player_id and sessions.id = players_sessions.session_id and games.id = sessions.game_id order by date"
+    sql = "SELECT games.name, sessions.date FROM players, players_sessions, sessions, games WHERE players.id = #{id} AND players.id = players_sessions.player_id AND sessions.id = players_sessions.session_id AND games.id = sessions.game_id ORDER BY date"
     results = SqlRunner.run(sql).first
     return results
   end
 
-#return name of all games player has played sessions of. Refactor so that game name only appears once
+#return name of all games player has played sessions of. NEED TO Refactor so that game name only appears once
   def games()
-    sql = "SELECT games.* FROM games, players, sessions, players_sessions WHERE players.id = #{id} AND players.id = players_sessions.player_id AND sessions.game_id = games.id AND players_sessions.session_id = sessions.id"
+    sql = "SELECT games.* FROM games, players, sessions, players_sessions WHERE players.id = #{id} AND players.id = players_sessions.player_id AND sessions.game_id = games.id AND players_sessions.session_id = sessions.id ORDER BY name"
     results = SqlRunner.run(sql)
     return results.map {|game| Game.new(game)}
   end
-
-#returns results_id for sessions played by player. Use to provide input for player performance page, like @session.results was used in session score card
-  def results()
-    sql = "SELECT players_sessions.result_id FROM players, players_sessions WHERE players.id = #{id} AND players_sessions.player_id = players.id"
-    results = SqlRunner.run(sql)
-    return results
-  end
-
-  # def all_wins_sorted
-  #   sql = "SELECT players.name FROM results, players, players_sessions, sessions where results.id = players_sessions.result_id AND players.id = players_sessions.player_id AND players_sessions.session_id = sessions.id AND results.tag = 'Won'"
-  #   results = SqlRunner.run(sql)
-  #   for results in results do
-  #     if result['name'] = 
-  #   end
-  # end
-
-  # def self.sort_players_by_wins
-  #   players = Players.all
-  #   for player in players do
-  #     sql = "SELECT * FROM players, players_sessions, results WHERE players.id = #{id} AND players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Won'"
-  #     wins = SqlRunner.run(sql)
-  #     table_input = wins.count
-  #   end
-  # end
 
   def won()
     sql = "SELECT * FROM players, players_sessions, results WHERE players.id = #{id} AND players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Won'"
