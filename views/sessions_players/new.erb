@@ -1,10 +1,11 @@
 <h2>Add Player Result to <%= @game.name %>; <%= @session.date %></h2>
 
-<form method="post" action="/sessions/players">
+<form method="post" action="/sessions/:id">
   <div class=form-el>
 
   <div class=form.>
-    
+    <label for="session_id">Session</label>
+    <input type="number" name="session_id" id="session_id" value = <%= @session.id %>>
   </div>
   
   <div class=form-el>
