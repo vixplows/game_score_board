@@ -14,9 +14,14 @@ class Session
   end
 
   def save()
-    sql = "INSERT INTO sessions (game_id, date, start_time, end_time) VALUES (#{@game_id}, '#{date}', '#{@start_time}', '#{@end_time}') RETURNING *"
+    sql = "INSERT INTO sessions (game_id, date, start_time, end_time) VALUES (#{@game_id}, '#{@date}', '#{@start_time}', '#{@end_time}') RETURNING *"
     results = SqlRunner.run(sql).first
     @id = results['id'].to_i
+  end
+
+  def update()
+    sql = "UPDATE sessions SET (game_id, date, start_time, end_time) = (#{@game_id}, '#{@date}', '#{@start_time}', '#{@end_time}') WHERE id = #{@id}"
+    SqlRunner.run(sql)
   end
 
 #get game name for session

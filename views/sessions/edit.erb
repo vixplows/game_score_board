@@ -1,2 +1,37 @@
 <h1>Edit Session Details</h1>
 
+<form method="post" action="/sessions/<%= @session.id  %>">
+  <div class="form-wrapper">
+
+    <div class = form-el>
+      <label for="select_game">Select Game:</label>
+      <select name="game_id" id="select_game" selected="<%= @session.game_id %>">
+        <% for game in @games %>
+          <% if game.id == @session.game_id %>
+          <option value=<% game.id %>
+          selected><%= game.name %></option>
+        <% else %>
+          <option value=<%= game.id %>><%= game.name %></option>
+        <% end %> %>
+       <% end %>
+      </select>
+    </div>
+
+    <div class=form-el>
+      <label for="date">Date:</label>
+      <input type="date" name="date" id="date" value="<%= @session.date %>">>
+    </div>
+    <div class=form-el>
+      <label for="start_time">Start Time:</label>
+      <input type="time" name="start_time" id="start_time" value="<%= @session.start_time %>">
+    </div>
+
+    <div class=form-el>
+      <label for="end_time">End Time:</label>
+      <input type="time" name="end_time" id="start_time" value="<%= @session.end_time %>">>
+    </div>
+
+    <div class="form-el">
+      <input type="submit" value="Save edited session">
+    </div>
+  </form>
