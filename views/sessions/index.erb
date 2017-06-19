@@ -11,10 +11,18 @@
 
   <div class="session">
     <h3><a href="/sessions/<%= session.id %>"><%= session.date %> : <%= session.game %></a></h3>
-    <p>Start Time: <%= session.start_time %></p>
-    <p>End Time: <%= session.end_time %></p>
-    <hr>
-  </div>
-
+    
+  <table>
+    <tr>
+      <th>Players:</th>
+    </tr>
+    <% players = session.players() %>
+    <% for player in players %>
+    <tr>
+      <td><%= player.name %></td>
+    </tr>
+    <% end %>
+  </table>
+  <hr>
   <% end %>
 </div>

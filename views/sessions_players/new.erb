@@ -3,11 +3,6 @@
 <form method="post" action="/sessions/:id">
   <div class=form-el>
 
-  <div class=form.>
-    <label for="session_id">Session</label>
-    <input type="number" name="session_id" id="session_id" value = <%= @session.id %>>
-  </div>
-  
   <div class=form-el>
     <label for="player">Player</label>
     <select id="select_player" name="player_id">
@@ -15,6 +10,11 @@
       <option value= <%= player.id %>><%= player.name %></option>
       <% end %>
     </select>
+  </div>
+
+  <div class=form-el>
+    <label for="points">Points:</label>
+    <input type="number" name="points" id="points">
   </div>
 
   <div class=form-el>
@@ -26,12 +26,13 @@
     </select>
   </div>
 
-  <div class=form-el>
-    <label for="points">Points:</label>
-    <input type="number" name="points" id="points">
+  <div class=form.>
+    <label for="session_id">Session ID: </label>
+    <input type="readonly" name="session_id" id="session_id" value = <%= @session.id %>>
   </div>
 
   <div class="form-el">
     <input type="submit" value="Save Player Results">
   </div>
+
 </form>

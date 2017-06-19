@@ -34,6 +34,13 @@ class Session
     return difference.to_i
   end
 
+# get players of specific sessions
+  def players()
+    sql = "SELECT players.* FROM sessions, players, players_sessions WHERE sessions.id = #{id} AND sessions.id = players_sessions.session_id AND players.id = players_sessions.player_id;"
+    results = SqlRunner.run(sql)
+    return results.map {|player| Player.new(player)}
+  end
+
   def results()
     sql = "SELECT results.tag, players.name, players_sessions.points
     FROM results, players, players_sessions, sessions
