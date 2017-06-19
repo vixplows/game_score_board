@@ -7,5 +7,6 @@ require_relative('controllers/sessions_players_controller.rb')
 
 get '/' do
   @players = Player.all()
+  @winners = Player.wins()
   erb(:index)
 end

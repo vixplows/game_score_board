@@ -31,7 +31,7 @@ class Player
 
 #return name of all games player has played sessions of. NEED TO Refactor so that game name only appears once
   def games()
-    sql = "SELECT games.* FROM games, players, sessions, players_sessions WHERE players.id = #{id} AND players.id = players_sessions.player_id AND sessions.game_id = games.id AND players_sessions.session_id = sessions.id ORDER BY name"
+    sql = "SELECT DISTINCT games.* FROM games, players, sessions, players_sessions WHERE players.id = #{id} AND players.id = players_sessions.player_id AND sessions.game_id = games.id AND players_sessions.session_id = sessions.id ORDER BY name"
     results = SqlRunner.run(sql)
     return results.map {|game| Game.new(game)}
   end
@@ -82,5 +82,11 @@ class Player
     sql = "SELECT * FROM players WHERE id = #{id}"
     results = SqlRunner.run(sql).first
     return Player.new(results)
+  end
+
+  def self.wins
+  sql = "SELECT players.name, count(*) as wins FROM players, players_sessions, results WHERE players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Won' group by players.name ORDER BY wins DESC"
+  winners = SqlRunner.run(sql)
+  return winners
   end
 end

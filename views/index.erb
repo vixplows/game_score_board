@@ -3,7 +3,23 @@
 <p>Do you love playing board games? Have you ever wanted to track your awesomness at game playing and compare your performance with your friends and family? Of course you have!</p>
 <p>Welcome to the Game Score Board where you can do just that<p>
 
-<h2>Results Board</h2>
+<h2>Leader Win Board</h2>
+<table>
+  <tr>
+    <th>Player</th>
+    <th>|</th>
+    <th>Wins</th>
+    <th>|</th>
+  </tr>
+  <% for winner in @winners %>
+    <td><%=  winner['name']%></td>
+    <td>|</td>
+    <td><%=  winner['wins']%></td>
+    <td>|</td>
+  <% end %>
+</table>
+
+<h2>Results All Board</h2>
 <table>
   <tr>
     <th>Name</th>
@@ -34,5 +50,3 @@
   </tr>
   <% end %>
 </table>
-
-<!-- ## need to sort table by won column will need to do sort in player.rb and then put table into here?-->
