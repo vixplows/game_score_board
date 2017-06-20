@@ -36,7 +36,8 @@
   </tr>
 </table>
 
-<p></p>
+<!-- #redundant now have all sesessions dor player listed by date desc! -->
+<!-- <p></p>
 <h3>Latest Session:</h3>
 <p></p>
 <p></p>
@@ -52,8 +53,8 @@
     <td><%= @player.latest_session['name'] %></td>
   </tr>
 </table>
-
-<p></p>
+ -->
+<!-- <p></p>
 <h3>Games Played:</h3>
 <p></p>
 <table>
@@ -63,7 +64,7 @@
         <td><%= game.name %></td>
     </tr>
     <% end %>
-</table>
+</table> -->
 
 <p></p>
 <h3>Session Results:</h3>
@@ -77,11 +78,14 @@
     <th>Result</th>
   </tr>
   <tr>
-    <td>game.date</td>
+    <% sessions = @player.sessions %>
+    <% for session in sessions %>
+    <td><%= session['date'] %></td>
     <td>|</td>
-    <td>game.name</td>
+    <td><%= session['name'] %></td>
     <td>|</td>
-    <td>result.tag</td>
-  </tr> 
+    <td><%= session['tag'] %></td>
+  </tr>
+  <% end %>
 </table>
 <p></p>

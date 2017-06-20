@@ -39,6 +39,12 @@ class Player
     return results
   end
 
+  def sessions
+    sql = "SELECT games.name, sessions.date, results.tag FROM players, games, results, players_sessions, sessions WHERE players.id = #{id} AND players.id = players_sessions.player_id AND players_sessions.session_id = sessions.id AND players_sessions.result_id = results.id AND games.id = sessions.game_id ORDER BY date DESC"
+    results = SqlRunner.run(sql)
+    return results.map
+  end
+
   def games()
     sql = "SELECT DISTINCT games.* FROM games, players, sessions, players_sessions WHERE players.id = #{id} AND players.id = players_sessions.player_id AND sessions.game_id = games.id AND players_sessions.session_id = sessions.id ORDER BY name"
     results = SqlRunner.run(sql)
