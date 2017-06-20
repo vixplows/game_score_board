@@ -35,6 +35,15 @@ class PlayerSession
     return results['session_id'].to_i
   end
 
+  def result()
+    sql = "SELECT players_sessions.result_id FROM players_sessions, results WHERE players_sessions.id = #{id} AND results.id = players_sessions.result_id"
+    results = SqlRunner.run(sql).first
+    return results['result_id'].to_i
+  end
+
+  def points()
+  end
+
   def self.delete_all
     sql = "DELETE FROM players_sessions"
     SqlRunner.run(sql)
