@@ -1,5 +1,10 @@
 <h1>Session Score Card<h1>
+
 <h2><%= @session.date %> : <%= @session.game %></h2>
+
+<hr>
+<p><a href="/sessions/<%= @session.id %>/player/new">Add Player Results</a><p>
+<hr>
 
 <table>
   <tr>
@@ -24,6 +29,3 @@
   <% end %>
 </table>
 
-<hr>
-<a href="/sessions/<%= @session.id %>/player/new">Add Player Results</a>
-<hr>

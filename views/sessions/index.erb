@@ -1,8 +1,8 @@
 <h1>Sessions</h1>
 
-<a href="/sessions/new">Add New Session</a>
 <hr>
-
+<h4><a href="/sessions/new">Add New Session</a></h4>
+<hr>
 
 <div id="session-wrapper">
   <% for session in @sessions %>
@@ -10,32 +10,37 @@
   <div class="session">
     <h3><a href="/sessions/<%= session.id %>"><%= session.date %> : <%= session.game %></a></h3>
 
+ <p></p>
+ <p></p>
  <table>
    <tr>
+   <!--   <th>Players</th>
+     <th>|</th> -->
      <th>Start:</th>
      <th>|</th>
      <th>End:</th>
      <th>|</th>
      <th>Duration:</th>
+     <th>|</th>
+     <th>Action</th>
    </tr>
+   <!--   <td><%= session.players_array %></td>
+     <td>|</td> -->
      <td><%= session.start_time %></td>
      <td>|</td>
      <td><%= session.end_time %></td>
      <td>|</td>
      <td><%= session.duration %> minutes</td>
- </table>   
-
-  <p>Players
-  <% players = session.players %>
-  <% for player in players %>
-   :
-  <%= player.name %>
-  <% end %>
-  </p>
-
-  <hr>
+     <td>|</td>
+     <td><a href="/sessions/<%= session.id %>/edit">Edit Session Details</a></td>
+ </table>
+ <p></p>
+ <p></p>
+ <!--  <hr>
   <a href="/sessions/<%= session.id %>/edit">Edit Session Details</a>
-  <hr>
+  <hr> -->
 
   <% end %>
+  <hr>
+
 </div>

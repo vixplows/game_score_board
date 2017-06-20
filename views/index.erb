@@ -1,45 +1,48 @@
 <h1>Welcome to the Game Score Board!</h1>
 
-<p>Do you love playing board games? Have you ever wanted to track your awesomness at game playing and compare your performance with your friends and family? Of course you have!</p>
-<p>Welcome to the Game Score Board where you can do just that<p>
+<p>Do you love playing board games? Have you ever wanted to track your awesomness at game playing and compare your performance with your friends and family? Of course you have! Welcome to the Game Score Board where you can do just that<p>
 
-<h2>Leader Board</h2>
+<h3>Leader Board</h3>
+<p></p>
 <table>
   <tr>
     <th>Player</th>
     <th>|</th>
-    <th>Wins</th>
-    <th>|</th>
+    <th>Won </th>
   </tr>
   <tr>
   <% for winner in @winners %>
     <td><%= winner['name']%></td>
     <td>|</td>
     <td><%= winner['wins']%></td>
-    <td>|</td>
   </tr>
   <% end %>
 </table>
+<p></p>
+<p></p>
 
-<h2>Loser Board</h2>
+<h3>Loser Board</h3>
+<p></p>
 <table>
   <tr>
     <th>Player</th>
     <th>|</th>
-    <th>Losses</th>
-    <th>|</th>
+    <th>Lost</th>
   </tr>
   <tr>
   <% for loser in @losers %>
     <td><%= loser['name']%></td>
     <td>|</td>
     <td><%= loser['losses']%></td>
-    <td>|</td>
   </tr>
   <% end %>
 </table>
+<p></p>
+<p></p>
 
-<h2>Results Board</h2>
+
+<h3>Results Board</h3>
+<p></p>
 <table>
   <tr>
     <th>Name</th>

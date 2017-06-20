@@ -1,18 +1,21 @@
 <h1>Games</h1>
 
-<a href="/games/new">Add New Game</a>
-<hr>
-
 <div id="game-wrapper">
   <% for game in @games %>
 
   <div class-"game">
-    <h3><a href="/games/<%= game.id %>"><%= game.name %></a></h3>
-    <hr>
+    <h3><a href="/games/<%= game.id %>"><%= game.name %></h3></a>
+    <p>type: <%= game.type.downcase %></p>
   </div>
 
+  <div class="container">
   <img src= "<%= game.image  %>">
-  
-
+  </div>
+  <hr>
   <% end %>
+
 </div>
+
+<hr>
+<a href="/games/new">Add New Game</a>
+<hr>

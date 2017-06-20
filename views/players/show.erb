@@ -1,9 +1,16 @@
 <h1><%= @player.name %></h1>
-<img src= "<%= @player.image  %>">
 
-<a href="/players/<%= @player.id %>/edit">Change Player Image</a>
+<div class=container>
+  <img src= "<%= @player.image  %>">
+</div>
 
+<p><a href="/players/<%= @player.id %>/edit">Change Player Image</a></p>
+
+<p></p>
+<p></p>
 <h3>Player Performance:</h3>
+<p></p>
+<p></p>
 <table>
   <tr>
     <th>Played</th>
@@ -29,16 +36,29 @@
   </tr>
 </table>
 
+<p></p>
+<p></p>
 <h3>Latest Session:</h3>
- 
-<% if @player.latest_session == nil %>
-<p> This player has no sessions </p>
-<% else %>
-<p>Date: <%= @player.latest_session['date'] %></p>
-<p>Game: <%= @player.latest_session['name'] %></p>
-<%end%>
+<p></p>
+<p></p>
+<table>
+  <tr>
+    <th>Date:</th>
+    <th>|</th>
+    <th>Game:</th>
+  </tr>
+  <tr>
+    <td><%= @player.latest_session['date'] %></td>
+    <td>|</td>
+    <td><%= @player.latest_session['name'] %></td>
+  </tr>
+</table>
 
+<p></p>
+<p></p>
 <h3>Games Played:</h3>
+<p></p>
+<p></p>
 <table>
     <% games = @player.games %>
     <% for game in games %> 
@@ -46,4 +66,16 @@
         <td><%= game.name %></td>
     </tr>
     <% end %>
+</table>
+
+<table>
+  <tr>
+    <th>Game</th>
+    <th>|</th>
+    <th>Played</th>
+
+  </tr>
+    <td></td>
+    <td>|</td>
+    <td></td>
 </table>
