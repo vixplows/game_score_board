@@ -21,13 +21,9 @@
   <% end %>
 </table>
 
-<h3>Duration: <%= @session.duration %> minutes</h3>
-  <p>Start: <%= @session.start_time %></p>
-  <p>Finish: <%= @session.end_time %></p>
 <hr>
-
+<a href="/sessions/<%= @session.id %>/player/edit">Edit Player Results</a>
+<hr>
 
 <a href="/sessions/<%= @session.id %>/player/new">Add Player Results</a>
   <hr>
-
-<a href="/sessions/<%= @session.id %>/edit">Edit Session Details</a>

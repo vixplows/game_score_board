@@ -22,3 +22,7 @@ get '/sessions/:id/player/edit' do
   @session = Session.find(params['id'])
   erb(:"sessions_players/edit")
 end
+
+post '/sessions/:id/player/edit' do
+  erb(:)
+end

@@ -19,7 +19,8 @@ class PlayerSession
   end
 
   def update()
-    sql = "UPDATE players_sessions ("
+    sql = "UPDATE players_sessions SET (player_id, session_id, result_id, points) = (#{@player_id}, #{@session_id}, #{@result_id}, #{@points}) WHERE id = #{@id}"
+    SqlRunner.run(sql)
   end
 
   def self.delete_all
