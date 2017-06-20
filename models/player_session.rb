@@ -18,6 +18,10 @@ class PlayerSession
     @id = results['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE players_sessions ("
+  end
+
   def self.delete_all
     sql = "DELETE FROM players_sessions"
     SqlRunner.run(sql)
