@@ -4,10 +4,12 @@
 <table>
   <tr>
     <th>Players</th>
-    <th></th>
+    <th>|</th>
     <th>Points</th>
-    <th></th>
+    <th>|</th>
     <th>Result</th>
+    <th>|</th>
+    <th>Edit</th>
     <th></th>
   </tr>
   <% for result in @results %>
@@ -17,13 +19,14 @@
     <td><%= result['points'] %></td>
     <td>|</td>
     <td><%= result['tag'] %></td>
+    <td>|</td>
+    <td><%=  %></td>
   </tr>
   <% end %>
 </table>
 
 <hr>
+<a href="/sessions/<%= @session.id %>/player/new">Add Player Results</a>
+<hr>
 <a href="/sessions/<%= @session.id %>/player/edit">Edit Player Results</a>
 <hr>
-
-<a href="/sessions/<%= @session.id %>/player/new">Add Player Results</a>
-  <hr>

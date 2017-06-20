@@ -20,9 +20,11 @@ end
 
 get '/sessions/:id/player/edit' do
   @session = Session.find(params['id'])
+  @players = Player.all()
+  @results = Result.all()
   erb(:"sessions_players/edit")
 end
 
 post '/sessions/:id/player/edit' do
-  erb(:)
+  redirect to "/sessions/#{params['id']}"
 end

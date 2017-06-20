@@ -1,37 +1,21 @@
-<h1>Edit Player Results</h1>
+<h1>Edit Player Results<h1>
 
-<form method="post" action="/sessions/:id">
-  <div class=form-el>
+## STEPS TO DO THIS:
 
-  <div class=form-el>
-    <label for="player">Player</label>
-    <select id="select_player" name="player_id">
-      <% for player in @players %>
-      <option value= <%= player.id %>><%= player.name %></option>
-      <% end %>
-    </select>
-  </div>
 
-  <div class=form-el>
-    <label for="points">Points:</label>
-    <input type="number" name="points" id="points">
-  </div>
+TO EDIT RESULTS FOR A SPECIFIC PLAYER FOR A SPECIFIC SESSION
 
-  <div class=form-el>
-    <label for="result">Select Result:</label>
-    <select id="select_result" name="result_id">
-      <% for result in @results %>
-      <option value= <%= result.id %>><%= result.tag %></option>
-      <% end %>
-    </select>
-  </div>
+for targettted session.id - find all associated players_session.ids (where sessions.id = players_sessions.session_id)
 
-  <div class=form.>
-    <input type="hidden" name="session_id" id="session_id" value = <%= @session.id %>>
-  </div>
+for found players_sessions_ids find associated player.ids (where players.id = players_sessions.player_id)
 
-  <div class="form-el">
-    <input type="submit" value="Save Edited Player Results">
-  </div>
+choose player_session.id want to edit based on which player's results want to change
 
-</form>
+update result_id, player_id, points in players_sessions table for that players_sessions.id as desired.
+
+nb: players_sessions.result_id is associatd with results.id
+
+
+##
+create link on session score card on each player's name that takes to page where can edit results and points and player id for that player.
+keep session_id as set and non-editable.
