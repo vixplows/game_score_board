@@ -1,16 +1,14 @@
 <h1>Games</h1>
 
-<ul>
-  <li>
-    <a href="/games/new">Add New Game</a>
-  </li>
-</ul>
+<a href="/games/new">Add New Game</a>
+<hr>
 
 <div id="game-wrapper">
   <% for game in @games %>
 
   <div class-"game">
     <h3><a href="/games/<%= game.id %>"><%= game.name %></a></h3>
+    <hr>
   </div>
 
   <% end %>

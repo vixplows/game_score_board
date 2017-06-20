@@ -89,4 +89,10 @@ class Player
   winners = SqlRunner.run(sql)
   return winners
   end
+
+  def self.losses
+    sql = "SELECT players.name, count(*) as losses FROM players, players_sessions, results WHERE players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Lost' group by players.name ORDER BY losses DESC"
+    losers = SqlRunner.run(sql)
+    return losers
+  end
 end

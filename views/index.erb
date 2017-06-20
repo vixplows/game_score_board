@@ -3,7 +3,7 @@
 <p>Do you love playing board games? Have you ever wanted to track your awesomness at game playing and compare your performance with your friends and family? Of course you have!</p>
 <p>Welcome to the Game Score Board where you can do just that<p>
 
-<h2>Leader Win Board</h2>
+<h2>Leader Board</h2>
 <table>
   <tr>
     <th>Player</th>
@@ -21,7 +21,24 @@
   <% end %>
 </table>
 
-<h2>Results All Board</h2>
+<h2>Loser Board</h2>
+  <tr>
+    <th>Player</th>
+    <th>|</th>
+    <th>Losses</th>
+    <th>|</th>
+  </tr>
+  <tr>
+  <% for loser in @losers %>
+    <td><%=  loser['name']%></td>
+    <td>|</td>
+    <td><%=  loser['wins']%></td>
+    <td>|</td>
+  </tr>
+  <% end %>
+</table>
+
+<h2>Results Board</h2>
 <table>
   <tr>
     <th>Name</th>
