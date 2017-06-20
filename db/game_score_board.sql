@@ -16,7 +16,8 @@ CREATE TABLE games
 (
   id SERIAL8 primary key,
   name VARCHAR(255) not null,
-  type_id INT8 references types(id)
+  type_id INT8 references types(id),
+  image TEXT
 );
 
 CREATE TABLE results 

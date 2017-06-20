@@ -45,70 +45,80 @@ type5.save()
 
 game1 = Game.new({
   "name" => "Scrabble",
-  "type_id" => type3.id
+  "type_id" => type3.id,
+  "image" =>  "/images/scrabble.jpg"
   })
 
 game1.save()
 
 game2 = Game.new({
   "name" => "Discworld: Ankh-Morpork",
-  "type_id" => type1.id
+  "type_id" => type1.id,
+  "image" =>  "/images/discworld.jpg"
   })
 
 game2.save()
 
 game3 = Game.new({
   "name" => "Carcassonne",
-  "type_id" => type1.id
+  "type_id" => type1.id,
+  "image" =>  "/images/carcassonne.jpg"
   })
 
 game3.save()
 
 game4 = Game.new({
   "name" => "Trivial Pursuit, Genus Edition",
-  "type_id" => type4.id
+  "type_id" => type4.id,
+  "image" =>  "/images/trivial1.jpg"
   })
 
 game4.save()
 
 game5 = Game.new({
   "name" => "Exploding Kittens",
-  "type_id" => type2.id
+  "type_id" => type2.id,
+  "image" =>  "/images/kittens.jpg"
   })
 
 game5.save()
 
 game6 = Game.new({
   "name" => "Monopoly Deal",
-  "type_id" => type2.id
+  "type_id" => type2.id,
+  "image" =>  "/images/deal.jpg"
   })
 
 game6.save()
 
 game7 = Game.new ({
   "name" => "The Settlers of Catan",
-  "type_id" => type1.id
+  "type_id" => type1.id,
+  "image" =>  "/images/catan.jpg"
   })
 
 game7.save()
 
 game8 = Game.new ({
   "name" => "Trivial Pursuit, Millenium Edition",
-  "type_id" => type4.id
+  "type_id" => type4.id,
+  "image" =>  "/images/trivial2.jpg"
   })
 
 game8.save()
 
 game9 = Game.new ({
   "name" => "7 Wonders",
-  "type_id" => type1.id
+  "type_id" => type1.id,
+  "image" =>  "/images/wonders.jpg"
   })
 
 game9.save()
 
 game10 = Game.new ({
   "name" => "Yahtzee",
-  "type_id" => type5.id
+  "type_id" => type5.id,
+  "image" =>  "/images/yahtzee.jpg"
   })
 
 game10.save()
