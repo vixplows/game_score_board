@@ -1,0 +1,24 @@
+<h1>Add New Game</h1>
+
+<form method = "post" action="/games">
+  <div class="form-el">
+
+    <div class="form-el">
+      <label for="name">Name:</label>
+      <input type="text" name="name" id="name">
+    </div>
+
+    <div class="form-el">
+      <label for="select_type">Select Type:</label>
+      <select id="select_type" name="type_id">
+        <% for type in @types %>
+          <option value=<%= type.id %>><%= type.name %></option>
+        <% end %>
+    </div>
+
+    <div class="form-el">
+      <input type="submit" value="Save new game">
+    </div>
+
+  </div>
+</form>
