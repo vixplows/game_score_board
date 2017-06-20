@@ -17,6 +17,11 @@ class Player
     @id = results['id'].to_i
   end
 
+  def update()
+    sql = "UPDATE players SET (name, image) = ('#{@name}', '#{@image}') WHERE id = #{@id}"
+    SqlRunner.run(sql)
+  end
+
   def play()
     sql = "SELECT * FROM players, players_sessions WHERE players.id = #{id} AND players_sessions.player_id = players.id"
     plays = SqlRunner.run(sql)

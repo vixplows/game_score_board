@@ -1,0 +1,16 @@
+<h1>Change Player Image</h1>
+
+<form method = "post" action="/players/<%= @player.id %>">
+  <div class="form-el">
+
+    <div class="form-el">
+      <label for="image">Enter Image Url:</label>
+      <input type="text" name="image" id="image">
+    </div>
+
+    <div class="form-el">
+      <input type="submit" value="Save new player image">
+    </div>
+
+  </div>
+</form>

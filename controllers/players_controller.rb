@@ -20,3 +20,14 @@ get '/players/:id' do
   @player = Player.find(params['id'])
   erb(:"players/show")
 end
+
+get '/players/:id/edit' do
+  @player = Player.find(params['id'])
+  erb(:"players/edit")
+end
+
+post '/players/:id' do
+  player = Player.new(params)
+  player.update
+  redirect to "/players/#{params['id']}"
+end
