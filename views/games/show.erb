@@ -2,10 +2,10 @@
 <div class="container">
 <img src= "<%= @game.image  %>">
 </div>
-<p></p>
+
 <p></p>
 <h3><%= @game.sessions %> sessions played:</h3>
-<p></p>
+
 <p></p>
   <table>
     <tr>
@@ -14,11 +14,10 @@
       <th>Start Time</th>
       <th></th>
       <th>End Time</th>
-      <th></th>
     </tr>
     <% for session in @sessions %>
     <tr>
-      <td><%= session['date'] %></td>
+      <td><a href="/sessions/<%= session['id'] %>"><%= session['date'] %></a></td>
       <td>|</td>
       <td><%= session['start_time'] %></td>
       <td>|</td>
@@ -27,9 +26,9 @@
     <% end %>
   </table>
 <p></p>
-<p></p>
+
 <h3>Results:</h3>
-<p></p>
+
 <p></p>
 <table>
   <tr>
@@ -42,20 +41,22 @@
     <th>Result</th>
     <th></th>
   </tr>
+  
   <% for result in @results %>
   <tr>
-    <td><%= result['date'] %></td>
+    <td><%= result['date'] %></a></td>
     <td>|</td>
     <td><%= result['name'] %></td>
     <td>|</td>
     <td><%= result['points'] %></td>
     <td>|</td>
     <td><%= result['tag'] %></td>
-  </tr>
   <% end %>
+  </tr>
 </table>
 
-<p></p>
+<!-- # redundant with list of session plays with players -->
+<!-- <p></p>
 <h3>Played By:</h3>
 <p></p>
 <p></p>
@@ -66,4 +67,4 @@
         <td><%= player.name %></td>
     </tr>
     <% end %>
-</table>
+</table> -->

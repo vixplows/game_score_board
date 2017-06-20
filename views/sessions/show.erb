@@ -3,16 +3,16 @@
 <h2><%= @session.date %> : <%= @session.game %></h2>
 
 <hr>
-<p><a href="/sessions/<%= @session.id %>/player/new">Add Player Results</a><p>
+<p><a href="/sessions/<%= @session.id %>/player/new">Add New Player Results</a><p>
 <hr>
 
 <table>
   <tr>
     <th>Players</th>
     <th>|</th>
-    <th>Points</th>
-    <th>|</th>
     <th>Result</th>
+    <th>|</th>
+    <th>Points</th>
     <th>|</th>
     <th>Action</th>
   </tr>
@@ -20,9 +20,9 @@
   <tr>
     <td><%= result['name'] %></td>
     <td>|</td>
-    <td><%= result['points'] %></td>
-    <td>|</td>
     <td><%= result['tag'] %></td>
+    <td>|</td>
+    <td><%= result['points'] %></td>
     <td>|</td>
     <td><a href="/players_sessions/<%= result['id'] %>/edit">Edit Results</a></td>
   </tr>

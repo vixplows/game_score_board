@@ -80,7 +80,7 @@
   <tr>
     <% sessions = @player.sessions %>
     <% for session in sessions %>
-    <td><%= session['date'] %></td>
+    <td><a href="/sessions/<%= session['id'] %>"><%= session['date'] %></a></td>
     <td>|</td>
     <td><%= session['name'] %></td>
     <td>|</td>

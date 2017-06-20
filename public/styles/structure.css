@@ -25,6 +25,11 @@ a, a:visited {
   text-decoration: none;
 }
 
+a:hover {
+  font-weight: bolder;
+  text-decoration: underline;
+}
+
 nav {
   padding: 0px;
   margin: 0px;
