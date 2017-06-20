@@ -29,6 +29,12 @@ class PlayerSession
     return results['player_id'].to_i
   end
 
+  def session()
+    sql = "SELECT players_sessions.session_id FROM players_sessions, sessions WHERE players_sessions.id = #{id} AND sessions.id = players_sessions.session_id"
+    results = SqlRunner.run(sql).first
+    return results['session_id'].to_i
+  end
+
   def self.delete_all
     sql = "DELETE FROM players_sessions"
     SqlRunner.run(sql)
