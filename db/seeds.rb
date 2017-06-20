@@ -46,7 +46,7 @@ type5.save()
 game1 = Game.new({
   "name" => "Scrabble",
   "type_id" => type3.id,
-  "image" =>  "/images/scrabble.jpg"
+  "image" =>  "/images/scrabble1.jpg"
   })
 
 game1.save()
