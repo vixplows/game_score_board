@@ -23,6 +23,13 @@ class Game
     return result['name']
   end
 
+  def players
+    sql = "SELECT DISTINCT players.* FROM games, players, players_sessions, sessions WHERE games.id = #{id} AND sessions.id = players_sessions.session_id AND players.id = players_sessions.player_id AND sessions.game_id = games.id"
+    SqlRunner.run(sql)
+    results = SqlRunner.run(sql)
+    return results.map {|player| Player.new(player)}
+  end
+
 #show score_card assocaited with this game_id via the player_sessions table
   def score_cards
     sql = "SELECT * FROM games, sessions, results, players_sessions, players WHERE players.id = players_sessions.player_id AND games.id = #{id} AND sessions.game_id = games.id AND players_sessions.session_id = sessions.id and results.id = players_sessions.result_id"

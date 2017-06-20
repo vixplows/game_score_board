@@ -54,3 +54,16 @@
   </tr>
   <% end %>
 </table>
+
+<p></p>
+<h3>Played By:</h3>
+<p></p>
+<p></p>
+<table>
+    <% players = @game.players %>
+    <% for player in players %> 
+    <tr>
+        <td><%= player.name %></td>
+    </tr>
+    <% end %>
+</table>

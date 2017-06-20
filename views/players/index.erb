@@ -1,19 +1,23 @@
 <h1>Players</h1>
 
-<hr>
-<h4></h2><a href="/players/new">Add New Player</a><h4>
-<hr>
 
 <div id="player-wrapper">
   <% for player in @players %>
 
   <div class-"player">
     <h3><a href="/players/<%= player.id %>"><%= player.name %></a></h3>
+    <p></p>
     <div class=container>
       <img src= "<%= player.image  %>">\
     </div>
+    <p></p>
   <hr>
   </div>
 
   <% end %>
+
+  <hr>
+  <h4></h2><a href="/players/new">Add New Player</a><h4>
+  <hr>
+
 </div>
