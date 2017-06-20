@@ -31,7 +31,7 @@ class PlayerSession
 
   def player_name()
     sql = "SELECT players.name FROM players, players_sessions WHERE players_sessions.id = #{id} AND players.id = players_sessions.player_id"
-    results = SqlRunner.run(sql)
+    results = SqlRunner.run(sql).first
     return results['name']
   end
 
