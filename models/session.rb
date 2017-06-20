@@ -24,13 +24,11 @@ class Session
     SqlRunner.run(sql)
   end
 
-#get game name for session
   def game()
     game = Game.find(@game_id)
     return game.name
   end
 
-#nb: required ('Time') for this method.
   def duration()
     session = Session.find(@id)
     end_time = Time.parse(session.end_time)
@@ -39,7 +37,6 @@ class Session
     return difference.to_i
   end
 
-# get players of specific sessions
   def players()
     sql = "SELECT players.* FROM sessions, players, players_sessions WHERE sessions.id = #{id} AND sessions.id = players_sessions.session_id AND players.id = players_sessions.player_id;"
     results = SqlRunner.run(sql)

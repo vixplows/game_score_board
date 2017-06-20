@@ -23,14 +23,12 @@ class Player
     return plays.count.to_i
   end
 
-# if not played in a session then not showing up and breaking the show page - need to set so that shows zero / nil when running...
   def latest_session()
     sql = "SELECT games.name, sessions.date FROM players, players_sessions, sessions, games WHERE players.id = #{id} AND players.id = players_sessions.player_id AND sessions.id = players_sessions.session_id AND games.id = sessions.game_id ORDER BY date"
     results = SqlRunner.run(sql).first
     return results
   end
 
-#return name of all games player has played sessions of. NEED TO Refactor so that game name only appears once
   def games()
     sql = "SELECT DISTINCT games.* FROM games, players, sessions, players_sessions WHERE players.id = #{id} AND players.id = players_sessions.player_id AND sessions.game_id = games.id AND players_sessions.session_id = sessions.id ORDER BY name"
     results = SqlRunner.run(sql)
@@ -61,11 +59,6 @@ class Player
     sum = 0
     results.each {|session_points| sum += session_points['points'].to_i}
     return sum
-  end
-
-# trying to get all results for all players ordered by greatest number of wins...
-  def self.sort_results
-    sql = ""
   end
 
   def self.delete_all

@@ -34,7 +34,7 @@ get '/sessions/:id/edit' do
 end
 
 post '/sessions/:id' do
-  session = Session.new(params[:id])
+  session = Session.new(params)
   session.update
   redirect to "/sessions/#{params['id']}"
 end

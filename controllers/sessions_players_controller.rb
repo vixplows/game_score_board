@@ -12,7 +12,7 @@ get '/sessions/:id/player/new' do
   erb(:"sessions_players/new")
 end
 
-post '/sessions/:id' do
+post '/sessions/:id/player/new' do
   player_session = PlayerSession.new(params)
   player_session.save()
   redirect to '/sessions'+'/'+player_session.session_id.to_s
