@@ -29,6 +29,12 @@ class PlayerSession
     return results['player_id'].to_i
   end
 
+  def player_name()
+    sql = "SELECT players.name FROM players, players_sessions WHERE players_sessions.id = #{id} AND players.id = players_sessions.player_id"
+    results = SqlRunner.run(sql)
+    return results['name']
+  end
+
   def session()
     sql = "SELECT players_sessions.session_id FROM players_sessions, sessions WHERE players_sessions.id = #{id} AND sessions.id = players_sessions.session_id"
     results = SqlRunner.run(sql).first

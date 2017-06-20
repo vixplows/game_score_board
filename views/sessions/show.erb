@@ -9,6 +9,7 @@
     <th>|</th>
     <th>Result</th>
     <th>|</th>
+    <th>Action</th>
   </tr>
   <% for result in @results %>
   <tr>
@@ -18,7 +19,7 @@
     <td>|</td>
     <td><%= result['tag'] %></td>
     <td>|</td>
-    </th>
+    <td><a href="/players_sessions/<%= result['id'] %>/edit">Edit Results</a></td>
   </tr>
   <% end %>
 </table>
