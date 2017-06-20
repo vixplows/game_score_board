@@ -41,9 +41,6 @@ class PlayerSession
     return results['result_id'].to_i
   end
 
-  def points()
-  end
-
   def self.delete_all
     sql = "DELETE FROM players_sessions"
     SqlRunner.run(sql)

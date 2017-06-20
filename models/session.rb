@@ -44,7 +44,7 @@ class Session
   end
 
   def results()
-    sql = "SELECT results.tag, players.name, players_sessions.points
+    sql = "SELECT results.tag, players.name, players_sessions.points, players_sessions.id
     FROM results, players, players_sessions, sessions
     WHERE results.id = players_sessions.result_id
     AND players.id = players_sessions.player_id
@@ -52,6 +52,11 @@ class Session
     AND sessions.id = #{id}"
     results = SqlRunner.run(sql)
     return results
+  end
+
+  def delete()
+    sql = "DELETE FROM sessions WHERE id = #{id}"
+    SqlRunner.run(sql)
   end
 
   def self.delete_all()

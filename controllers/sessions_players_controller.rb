@@ -15,16 +15,18 @@ end
 post '/sessions/:id/player/new' do
   player_session = PlayerSession.new(params)
   player_session.save()
-  redirect to '/sessions'+'/'+player_session.session_id.to_s
+  redirect to "/sessions/#{params['id']}"
 end
 
 get '/sessions/:id/player/edit' do
   @session = Session.find(params['id'])
-  @players = Player.all()
   @results = Result.all()
+  @result = @session.results()
   erb(:"sessions_players/edit")
 end
 
 post '/sessions/:id/player/edit' do
+  player_session = PlayerSession.new(params)
+  player_session.update
   redirect to "/sessions/#{params['id']}"
 end

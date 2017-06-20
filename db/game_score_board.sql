@@ -35,7 +35,7 @@ CREATE TABLE players
 CREATE TABLE sessions
 (
   id SERIAL8 primary key,
-  game_id INT8 references games(id),
+  game_id INT8 references games(id) ON DELETE CASCADE,
   date DATE,
   start_time TIME,
   end_time TIME
@@ -45,8 +45,8 @@ CREATE TABLE sessions
 CREATE TABLE players_sessions
 (
   id SERIAL8 primary key,
-  player_id INT8 references players(id),
-  session_id INT8 references sessions(id),
-  result_id INT8 references results(id),
+  player_id INT8 references players(id) ON DELETE CASCADE,
+  session_id INT8 references sessions(id) ON DELETE CASCADE,
+  result_id INT8 references results(id) ON DELETE CASCADE,
   points INT8
 );

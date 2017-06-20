@@ -22,6 +22,11 @@ class Player
     SqlRunner.run(sql)
   end
 
+  def delete()
+    sql = "DELETE FROM players WHERE players.id = #{id}"
+    SqlRunner.run(sql)
+  end
+
   def play()
     sql = "SELECT * FROM players, players_sessions WHERE players.id = #{id} AND players_sessions.player_id = players.id"
     plays = SqlRunner.run(sql)
