@@ -20,9 +20,10 @@ class Player
   def play()
     sql = "SELECT * FROM players, players_sessions WHERE players.id = #{id} AND players_sessions.player_id = players.id"
     plays = SqlRunner.run(sql)
-    return plays.count
+    return plays.count.to_i
   end
 
+# if not played in a session then not showing up and breaking the show page - need to set so that shows zero / nil when running...
   def latest_session()
     sql = "SELECT games.name, sessions.date FROM players, players_sessions, sessions, games WHERE players.id = #{id} AND players.id = players_sessions.player_id AND sessions.id = players_sessions.session_id AND games.id = sessions.game_id ORDER BY date"
     results = SqlRunner.run(sql).first

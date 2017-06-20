@@ -27,8 +27,13 @@
 </table>
 
 <h3>Latest Session:</h3>
+ 
+<% if @player.latest_session == nil %>
+<p> This player has no sessions </p>
+<% else %>
 <p>Date: <%= @player.latest_session['date'] %></p>
 <p>Game: <%= @player.latest_session['name'] %></p>
+<%end%>
 
 <h3>Games Played:</h3>
 <table>

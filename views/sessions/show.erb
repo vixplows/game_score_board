@@ -26,12 +26,8 @@
   <p>Finish: <%= @session.end_time %></p>
 <hr>
 
-<ul>
-  <li>
-    <a href="/sessions/<%= @session.id %>/player/new">Add Player Results</a>
-  </li>
+
+<a href="/sessions/<%= @session.id %>/player/new">Add Player Results</a>
   <hr>
-  <li>
-    <a href="/sessions/<%= @session.id %>/edit">Edit Session Details</a>
-  </li>
-</ul>
+
+<a href="/sessions/<%= @session.id %>/edit">Edit Session Details</a>

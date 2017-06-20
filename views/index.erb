@@ -13,15 +13,16 @@
   </tr>
   <tr>
   <% for winner in @winners %>
-    <td><%=  winner['name']%></td>
+    <td><%= winner['name']%></td>
     <td>|</td>
-    <td><%=  winner['wins']%></td>
+    <td><%= winner['wins']%></td>
     <td>|</td>
   </tr>
   <% end %>
 </table>
 
 <h2>Loser Board</h2>
+<table>
   <tr>
     <th>Player</th>
     <th>|</th>
@@ -30,9 +31,9 @@
   </tr>
   <tr>
   <% for loser in @losers %>
-    <td><%=  loser['name']%></td>
+    <td><%= loser['name']%></td>
     <td>|</td>
-    <td><%=  loser['wins']%></td>
+    <td><%= loser['losses']%></td>
     <td>|</td>
   </tr>
   <% end %>

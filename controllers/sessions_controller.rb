@@ -27,14 +27,14 @@ get '/sessions/:id' do
   erb(:"sessions/show")
 end
 
-# post '/sessions/:id' do
-#   session = Session.new(params)
-#   session.update
-#   redirect to "/sessions/#{params['id']}"
-# end
-
 get '/sessions/:id/edit' do
   @session = Session.find(params['id'])
   @games = Game.all()
   erb(:"sessions/edit")
+end
+
+post '/sessions/:id' do
+  session = Session.new(params[:id])
+  session.update
+  redirect to "/sessions/#{params['id']}"
 end
