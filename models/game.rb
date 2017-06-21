@@ -43,14 +43,18 @@ class Game
         INNER JOIN sessions ON players_sessions.session_id = sessions.id
         INNER JOIN results ON players_sessions.result_id = results.id
         INNER JOIN games ON sessions.game_id = games.id
-        WHERE games.id = #{id} ORDER BY sessions.date DESC"
+        WHERE games.id = #{id}
+        ORDER BY sessions.date DESC"
     results = SqlRunner.run(sql)
     return results
   end
 
 # to return all info from sessions table for sessions with specified game id
   def session_list
-    sql = "select * from games, sessions where sessions.game_id = games.id and games.id = #{id}"
+    sql = "SELECT * FROM sessions
+      INNER JOIN games ON sessions.game_id = games.id
+      WHERE games.id = #{id}
+      ORDER BY sessions.date DESC"
     sessions = SqlRunner.run(sql)
     return sessions
   end
