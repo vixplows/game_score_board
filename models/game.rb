@@ -59,12 +59,12 @@ class Game
     return sessions
   end
 
-#return number of session plays of a game.
-  def sessions()
-    sql = "SELECT * FROM sessions INNER JOIN games ON sessions.game_id = games.id WHERE games.id = #{id}"
-    sessions = SqlRunner.run(sql)
-    return sessions.count
-  end
+# #return number of session plays of a game. Redundant because can now count sessions in the array from session_list
+#   def sessions()
+#     sql = "SELECT * FROM sessions INNER JOIN games ON sessions.game_id = games.id WHERE games.id = #{id}"
+#     sessions = SqlRunner.run(sql)
+#     return sessions.count
+#   end
 
   def delete()
     sql = "DELETE FROM games WHERE games.id = #{id}"

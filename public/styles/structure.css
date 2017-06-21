@@ -2,7 +2,7 @@ body {
   background: black url('/images/background.jpg');
   background-size: cover;
   background-repeat: repeat-y;
-/*  background-attachment: fixed;*/
+  background-attachment: fixed;
   color: papayawhip;
   font-family: 'Verdana', sans-serif;
   padding: 0px;
@@ -76,7 +76,7 @@ main {
 }
 
 #content {
-  border-left: 1px solid darkred;
+  border-left: 1px solid white;
   padding-left: 25px;
 }
 

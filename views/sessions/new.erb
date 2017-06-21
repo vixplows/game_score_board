@@ -3,6 +3,7 @@
 <form method="post" action="/sessions">
   <div class="form-el">
   
+  <p></p>
   <div class=form-el>
     <label for="select_game">Select Game:</label>
     <select id="select_game" name="game_id">
@@ -10,23 +11,35 @@
       <option value=<%= game.id %>><%= game.name %></option>
       <% end %>
     </select>
-   </div> 
+   </div>
+   <p></p>
 
+  <p></p>
   <div class=form-el>
     <label for="date">Date:</label>
     <input type="date" name="date" id="date">
   </div>
+  <p></p>
+
+  <p></p>
   <div class=form-el>
     <label for="start_time">Start Time:</label>
     <input type="time" name="start_time" id="start_time">
   </div>
+  <p></p>
 
+  <p></p>
   <div class=form-el>
     <label for="end_time">End Time:</label>
     <input type="time" name="end_time" id="start_time">
   </div>
+  <p></p>
 
+  <p></p>
   <div class="form-el">
     <input type="submit" value="Save new session">
+  </div>
+  <p></p>
+
   </div>
 </form>
