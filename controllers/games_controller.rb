@@ -23,5 +23,6 @@ get '/games/:id' do
   @game = Game.find(params['id'])
   @sessions = @game.session_list()
   @results = @game.score_cards()
+  @session = @game.sessions()
   erb(:"games/show")
 end

@@ -38,7 +38,7 @@ class Game
 
 #show score_card assocaited with this game_id via the player_sessions table
   def score_cards
-    sql = "SELECT * FROM players_sessions
+    sql = "SELECT players.name, sessions.date, players_sessions.points, results.tag, sessions.id FROM players_sessions
         INNER JOIN players ON players_sessions.player_id = players.id
         INNER JOIN sessions ON players_sessions.session_id = sessions.id
         INNER JOIN results ON players_sessions.result_id = results.id

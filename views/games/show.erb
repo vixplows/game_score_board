@@ -17,7 +17,7 @@
     </tr>
     <% for session in @sessions %>
     <tr>
-      <td><a href="/sessions/<%= session['id'] %>"><%= session['date'] %></a></td>
+      <td><%= session['date'] %></a></td>
       <td>|</td>
       <td><%= session['start_time'] %></td>
       <td>|</td>
@@ -35,14 +35,13 @@
     <th>Date</th>
     <th>|</th>
     <th>Players</th>
-    <th></th>
+    <th>|</th>
     <th>Points</th>
-    <th></th>
+    <th>|</th>
     <th>Result</th>
-    <th></th>
   </tr>
   
-  <% for result in @results %>
+<% for result in @results %>
   <tr>
     <td><%= result['date'] %></a></td>
     <td>|</td>
@@ -51,20 +50,6 @@
     <td><%= result['points'] %></td>
     <td>|</td>
     <td><%= result['tag'] %></td>
-  <% end %>
   </tr>
+  <% end %>
 </table>
-
-<!-- # redundant with list of session plays with players -->
-<!-- <p></p>
-<h3>Played By:</h3>
-<p></p>
-<p></p>
-<table>
-    <% players = @game.players %>
-    <% for player in players %> 
-    <tr>
-        <td><%= player.name %></td>
-    </tr>
-    <% end %>
-</table> -->
