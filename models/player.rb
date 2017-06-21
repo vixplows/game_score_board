@@ -59,7 +59,11 @@ class Player
   end
 
   def games()
-    sql = "SELECT DISTINCT games.* FROM games, players, sessions, players_sessions WHERE players.id = #{id} AND players.id = players_sessions.player_id AND sessions.game_id = games.id AND players_sessions.session_id = sessions.id ORDER BY name"
+    sql = "SELECT DISTINCT games.* FROM players_sessions
+      INNER JOIN players ON players_sessions.player_id = players.id
+      INNER JOIN sessions ON players_sessions.session_id = sessions.id
+      INNER JOIN games ON sessions.game_id = games.id
+      WHERE players.id = #{id} ORDER BY name"
     results = SqlRunner.run(sql)
     return results.map {|game| Game.new(game)}
   end
@@ -101,7 +105,7 @@ class Player
   end
 
   def points_total
-    sql = "SELECT players_sessions.points FROM players, players_sessions WHERE players.id = #{id} AND players.id = players_sessions.player_id"
+    sql = "SELECT players_sessions.points FROM players_sessions INNER JOIN players ON players_sessions.player_id = players.id WHERE players.id = #{id}"
     results = SqlRunner.run(sql)
     sum = 0
     results.each {|session_points| sum += session_points['points'].to_i}
