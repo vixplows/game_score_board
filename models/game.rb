@@ -18,7 +18,7 @@ class Game
   end
 
   def type
-    sql = "SELECT types.name FROM types, games WHERE types.id = games.type_id AND games.id = #{id}"
+    sql = "SELECT types.name FROM games INNER JOIN types ON types.id = games.type_id WHERE games.id = #{id}"
     result = SqlRunner.run(sql).first
     return result['name']
   end
