@@ -4,24 +4,21 @@
 <div id="player-wrapper">
   <% for player in @players %>
 
+
+
   <div class-"player">
     <h3><a href="/players/<%= player.id %>"><%= player.name %></a></h3>
+    <p></p>
+    <p>Latest Session: <%= player.latest_session['name'] %> on <%= player.latest_session['date'] %></p>
     <p></p>
     <div class=container>
       <img src= "<%= player.image  %>">
     </div>
     <p></p>
   
-  <p></p>
-  <p>Latest Session: <%= player.latest_session['name'] %> on <%= player.latest_session['date'] %></p>
   <hr>
-
   <% end %>
-  <hr>
+  
   </div>
-  <p></p>
-  <hr>
-  <h4></h2><a href="/players/new">Add New Player</a><h4>
-  <hr>
 
 </div>
