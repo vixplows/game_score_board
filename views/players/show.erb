@@ -37,35 +37,6 @@
 </table>
 
 <p></p>
-<h3>Latest Session:</h3>
-<p></p>
-<p></p>
-<table>
-  <tr>
-    <th>Date:</th>
-    <th>|</th>
-    <th>Game:</th>
-  </tr>
-  <tr>
-    <td><%= @player.latest_session['date'] %></td>
-    <td>|</td>
-    <td><%= @player.latest_session['name'] %></td>
-  </tr>
-</table>
-
-<p></p>
-<h3>Games Played:</h3>
-<p></p>
-<table>
-    <% games = @player.games %>
-    <% for game in games %> 
-    <tr>
-        <td><%= game.name %></td>
-    </tr>
-    <% end %>
-</table>
-
-<p></p>
 <h3>Session Results:</h3>
 <p></p>
 <table>
@@ -92,3 +63,15 @@
   <% end %>
 </table>
 <p></p>
+
+<p></p>
+<h3>Games Played:</h3>
+<p></p>
+<table>
+    <% games = @player.games %>
+    <% for game in games %> 
+    <tr>
+        <td><%= game.name %></td>
+    </tr>
+    <% end %>
+</table>
