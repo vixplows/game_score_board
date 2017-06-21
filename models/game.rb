@@ -36,7 +36,7 @@ class Game
     return results.map {|player| Player.new(player)}
   end
 
-#show score_card assocaited with this game_id via the player_sessions table
+# returns all information needed to display the session score card for a targetted session in session show.erb
   def score_cards
     sql = "SELECT players.name, sessions.date, players_sessions.points, results.tag, sessions.id FROM players_sessions
         INNER JOIN players ON players_sessions.player_id = players.id
@@ -49,7 +49,7 @@ class Game
     return results
   end
 
-# to return all info from sessions table for sessions with specified game id
+# returns an array of all sessions plus all info associated with a targetted game used to display information on games show.erb
   def session_list
     sql = "SELECT * FROM sessions
       INNER JOIN games ON sessions.game_id = games.id
@@ -58,13 +58,6 @@ class Game
     sessions = SqlRunner.run(sql)
     return sessions
   end
-
-# #return number of session plays of a game. Redundant because can now count sessions in the array from session_list
-#   def sessions()
-#     sql = "SELECT * FROM sessions INNER JOIN games ON sessions.game_id = games.id WHERE games.id = #{id}"
-#     sessions = SqlRunner.run(sql)
-#     return sessions.count
-#   end
 
   def delete()
     sql = "DELETE FROM games WHERE games.id = #{id}"
