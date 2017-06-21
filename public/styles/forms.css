@@ -1,16 +1,17 @@
 input[type="submit"] {
   text-transform: uppercase;
-  font-family: 'Special Elite', cursive;
+  font-family: 'Verdana', sans-serif;
+  font-size: 0em;
 }
 
 select {
  width: 150px;
  padding: 5px 35px 5px 5px;
  margin: 15px 0;
- font-size: 0.8em;
- -webkit-appearance: none;
+ font-size: 1.0em;
+/* -webkit-appearance: none;*/
  background: url('/images/heartboardgame.png') 96% / 15% no-repeat papayawhip;
- font-family: 'Merriweather', serif;
+ font-family: 'Verdana', sans-serif;
  border: 1px solid #eee;
  display: block;
 } 

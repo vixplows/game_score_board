@@ -1,35 +1,49 @@
-<h1>Edit Player <%= @player_session.player_name %>'s Results<h1>
+<h4>Edit Player <%= @player_session.player_name %>'s Results<h4>
 
+<p></p>
 <form method="post" action="/player_sessions/<%= @player_session.id %>/edit">
-  <div class=form-el>
+  <div class="form-el">
 
+<p></p>
   <div class=form-el>
     <label for="player_id"></label>
     <input type="hidden" name="player_id" id = "player_id" value = <%= @player_session.player %>>
   </div>
+<p></p>
 
+<p></p>
   <div class=form-el>
     <label for="session_id"></label>
     <input type="hidden" name="session_id" id="session_id" value= <%= @player_session.session %>>
   </div>
-  
+<p></p>
+
+<p></p>
   <div class=form-el>
     <label for="points">Points:</label>
-    <input type="number" name="points" id="points">
+    <input value="<%= @player_session.points  %>" type="number" name="points" id="points">
   </div>
+<p></p>
 
+<p></p>
   <div class=form-el>
     <label for="result">Select Result:</label>
     <select id="select_result" name="result_id">
-        <% for result in @results %>
+        <% @results.each do |result| %>
+        <% if result.id == @player_session.result_id %>
+        <option value=<%= result.id %> selected><%= result.tag %></option>
+        <% else %>
         <option value= <%= result.id %>><%= result.tag %></option>
         <% end %>
-    </select>
+      <% end %>
   </div>
+<p></p>
     
+<p></p>
   <div class="form-el">
     <input type="submit" value="Save Changed Results">
   </div>
+<p></p>
 
 </form>
 
