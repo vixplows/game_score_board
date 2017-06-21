@@ -65,7 +65,10 @@ class Player
   end
 
   def won()
-    sql = "SELECT * FROM players, players_sessions, results WHERE players.id = #{id} AND players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Won'"
+    sql = "SELECT * FROM players_sessions
+      INNER JOIN players ON players_sessions.player_id = players.id
+      INNER JOIN results ON players_sessions.result_id = results.id
+      WHERE players.id = #{id} AND results.tag='Won'"
     wins = SqlRunner.run(sql)
     return wins.count
   end
