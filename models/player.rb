@@ -32,8 +32,8 @@ class Player
     if result >= 70
       return "what a WINNER!"
     elsif result >= 40
-      return "What a PLAYER!"
-    else return "What a LOSER!"
+      return "what a PLAYER!"
+    else return "what a LOSER!"
     end
   end
 
@@ -141,20 +141,20 @@ class Player
     return Player.new(results)
   end
 
-  def self.wins
+  def self.wins()
   sql = "SELECT players.name, count(*) as wins FROM players_sessions
       INNER JOIN players ON players_sessions.player_id = players.id
       INNER JOIN results ON players_sessions.result_id = results.id
-      WHERE results.tag = 'Won' GROUP BY players.name ORDER BY wins DESC"
+      WHERE results.tag = 'Won' GROUP BY players.name ORDER BY wins DESC LIMIT 3"
   winners = SqlRunner.run(sql)
   return winners
   end
 
-  def self.losses
+  def self.losses()
     sql = "SELECT players.name, count(*) as losses FROM players_sessions
         INNER JOIN players ON players_sessions.player_id = players.id
         INNER JOIN results ON players_sessions.result_id = results.id
-        WHERE results.tag = 'Lost' GROUP BY players.name ORDER BY losses DESC"
+        WHERE results.tag = 'Lost' GROUP BY players.name ORDER BY losses DESC LIMIT 3"
     losers = SqlRunner.run(sql)
     return losers
   end
