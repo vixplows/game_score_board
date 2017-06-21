@@ -36,7 +36,11 @@ class Player
   end
 
   def latest_session()
-    sql = "SELECT games.name, sessions.date FROM players, players_sessions, sessions, games WHERE players.id = #{id} AND players.id = players_sessions.player_id AND sessions.id = players_sessions.session_id AND games.id = sessions.game_id ORDER BY date DESC"
+    sql = "SELECT games.name, sessions.date FROM players_sessions
+      INNER JOIN players ON players_sessions.player_id = players.id
+      INNER JOIN sessions ON players_sessions.session_id = sessions.id
+      INNER JOIN games ON sessions.game_id = games.id
+      WHERE players.id = #{id} ORDER BY date DESC"
     results = SqlRunner.run(sql).first
     return results
   end
