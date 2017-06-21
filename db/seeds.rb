@@ -350,7 +350,7 @@ player_session9 = PlayerSession.new ({
   "player_id" => player1.id,
   "session_id" => session5.id,
   "result_id" => result1.id,
-  "points" => 24
+  "points" => 124
   })
 
 player_session9.save()

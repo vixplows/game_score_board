@@ -3,6 +3,8 @@ require 'minitest/rg'
 
 require_relative '../models/player'
 
+## did not run test as message method had other methods as part of it that called on the db
+
 class TestPlater < Minitest::Test
   def setup
     @player1 = Player.new("Wa Wa")

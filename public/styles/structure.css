@@ -31,7 +31,6 @@ a, a:visited {
 }
 
 a:hover {
-  font-weight: bolder;
   text-decoration: underline;
 }
 

@@ -1,20 +1,22 @@
 <h1>Players</h1>
 
-
 <div id="player-wrapper">
   <% for player in @players %>
 
-
-
   <div class-"player">
     <h3><a href="/players/<%= player.id %>"><%= player.name %></a></h3>
-    <p></p>
+  
+    <div>
+    <% if player.latest_session != nil %>
     <p>Latest Session: <%= player.latest_session['name'] %> on <%= player.latest_session['date'] %></p>
-    <p></p>
+    <% else %>
+    <p>Player has not played any sessions yet</p>
+    <% end %>
+    </div>
+    
     <div class=container>
       <img src= "<%= player.image  %>">
     </div>
-    <p></p>
   
     <hr>
     <% end %>

@@ -32,5 +32,4 @@ class Type
     return Type.new(results)
   end
 
-
 end
