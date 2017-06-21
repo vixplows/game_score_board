@@ -29,11 +29,11 @@ class Player
 
   def message()
     result = (won.to_f / play.to_f) * 100
-    if result >= 60
-      return "What a winner!"
+    if result >= 70
+      return "what a WINNER!"
     elsif result >= 40
-      return "What a player!"
-    else return "What a loser!"
+      return "What a PLAYER!"
+    else return "What a LOSER!"
     end
   end
 
