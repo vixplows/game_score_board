@@ -38,28 +38,21 @@ class Session
   end
 
   def players()
-    sql = "SELECT players.* FROM sessions, players, players_sessions WHERE sessions.id = #{id} AND sessions.id = players_sessions.session_id AND players.id = players_sessions.player_id"
+    sql = "SELECT players.* FROM players_sessions
+      INNER JOIN players ON players_sessions.player_id = players.id
+      INNER JOIN sessions ON players_sessions.session_id = sessions.id
+      WHERE sessions.id = #{id}"
     results = SqlRunner.run(sql)
     return results.map {|player| Player.new(player)}
   end
 
-  # def players_array()
-  #   sql = "SELECT players.name FROM sessions, players, players_sessions WHERE sessions.id = #{id} AND sessions.id = players_sessions.session_id AND players.id = players_sessions.player_id"
-  #   results = SqlRunner.run(sql)
-  #   session_players = []
-  #     for result in results
-  #       session_players<<result['name']
-  #     end
-  #   return session_players
-  # end
-
   def results()
     sql = "SELECT results.tag, players.name, players_sessions.points, players_sessions.id
-    FROM results, players, players_sessions, sessions
-    WHERE results.id = players_sessions.result_id
-    AND players.id = players_sessions.player_id
-    AND players_sessions.session_id = sessions.id
-    AND sessions.id = #{id}"
+      FROM players_sessions
+      INNER JOIN sessions ON players_sessions.session_id = sessions.id
+      INNER JOIN players ON players_sessions.player_id = players.id
+      INNER JOIN results ON players_sessions.result_id = results.id
+      WHERE sessions.id = #{id}"
     results = SqlRunner.run(sql)
     return results
   end
