@@ -18,13 +18,19 @@ class Game
   end
 
   def type
-    sql = "SELECT types.name FROM games INNER JOIN types ON types.id = games.type_id WHERE games.id = #{id}"
+    sql = "SELECT types.name FROM games
+        INNER JOIN types ON types.id = games.type_id
+        WHERE games.id = #{id}"
     result = SqlRunner.run(sql).first
     return result['name']
   end
 
   def players
-    sql = "SELECT DISTINCT players.* FROM players_sessions INNER JOIN players ON players.id = players_sessions.player_id INNER JOIN sessions ON players_sessions.session_id = sessions.id INNER JOIN games ON sessions.game_id = games.id WHERE games.id = #{id}"
+    sql = "SELECT DISTINCT players.* FROM players_sessions
+        INNER JOIN players ON players.id = players_sessions.player_id
+        INNER JOIN sessions ON players_sessions.session_id = sessions.id
+        INNER JOIN games ON sessions.game_id = games.id
+        WHERE games.id = #{id}"
     SqlRunner.run(sql)
     results = SqlRunner.run(sql)
     return results.map {|player| Player.new(player)}
@@ -32,7 +38,12 @@ class Game
 
 #show score_card assocaited with this game_id via the player_sessions table
   def score_cards
-    sql = "SELECT * FROM games, sessions, results, players_sessions, players WHERE players.id = players_sessions.player_id AND games.id = #{id} AND sessions.game_id = games.id AND players_sessions.session_id = sessions.id and results.id = players_sessions.result_id"
+    sql = "SELECT * FROM players_sessions
+        INNER JOIN players ON players_sessions.player_id = players.id
+        INNER JOIN sessions ON players_sessions.session_id = sessions.id
+        INNER JOIN results ON players_sessions.result_id = results.id
+        INNER JOIN games ON sessions.game_id = games.id
+        WHERE games.id = #{id} ORDER BY sessions.date DESC"
     results = SqlRunner.run(sql)
     return results
   end
