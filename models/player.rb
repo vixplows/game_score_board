@@ -91,6 +91,15 @@ class Player
     return draws.count
   end
 
+  def in_progress()
+    sql = "SELECT * FROM players_sessions
+      INNER JOIN players ON players_sessions.player_id = players.id
+      INNER JOIN results ON players_sessions.result_id = results.id
+      WHERE players.id = #{id} AND results.tag='In progress'"
+    draws = SqlRunner.run(sql)
+    return draws.count
+  end
+
   def points_total
     sql = "SELECT players_sessions.points FROM players, players_sessions WHERE players.id = #{id} AND players.id = players_sessions.player_id"
     results = SqlRunner.run(sql)

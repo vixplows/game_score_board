@@ -15,6 +15,8 @@
   <tr>
     <th>Played</th>
     <th>|</th>
+    <th>In Play</th>
+    <th>|</th>
     <th>Won</th>
     <th>|</th>
     <th>Lost</th>
@@ -25,6 +27,8 @@
   </tr>
   <tr>
     <td><%= @player.play %></td>
+    <td>|</td>
+    <td><%= @player.in_progress %></td>
     <td>|</td>
     <td><%= @player.won %></td>
     <td>|</td>
