@@ -8,7 +8,7 @@ require_relative('controllers/sessions_players_controller.rb')
 get '/' do
   @players = Player.all()
   @players.sort_by!(&:name)
-  @winners = Player.wins()
-  @losers = Player.losses()
+  @winners = Player.top_three_winners()
+  @losers = Player.top_three_losers()
   erb(:index)
 end

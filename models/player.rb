@@ -30,10 +30,10 @@ class Player
   def message()
     result = (won.to_f / play.to_f) * 100
     if result >= 70
-      return "what a WINNER!"
+      return "what a ** WINNER! **"
     elsif result >= 40
-      return "what a PLAYER!"
-    else return "what a LOSER!"
+      return "what a ** PLAYER! **"
+    else return "what a ** LOSER! **"
     end
   end
 
@@ -57,7 +57,7 @@ class Player
     return results
   end
 
-  def sessions
+  def sessions()
     sql = "SELECT games.name, sessions.date, results.tag, sessions.id, players_sessions.points FROM players_sessions
       INNER JOIN players ON players_sessions.player_id = players.id
       INNER JOIN results ON players_sessions.result_id = results.id
@@ -114,7 +114,7 @@ class Player
     return draws.count
   end
 
-  def points_total
+  def points_total()
     sql = "SELECT players_sessions.points FROM players_sessions
       INNER JOIN players ON players_sessions.player_id = players.id
       WHERE players.id = #{id}"
@@ -141,7 +141,7 @@ class Player
     return Player.new(results)
   end
 
-  def self.wins()
+  def self.top_three_winners()
   sql = "SELECT players.name, count(*) as wins FROM players_sessions
       INNER JOIN players ON players_sessions.player_id = players.id
       INNER JOIN results ON players_sessions.result_id = results.id
@@ -150,7 +150,7 @@ class Player
   return winners
   end
 
-  def self.losses()
+  def self.top_three_losers()
     sql = "SELECT players.name, count(*) as losses FROM players_sessions
         INNER JOIN players ON players_sessions.player_id = players.id
         INNER JOIN results ON players_sessions.result_id = results.id
