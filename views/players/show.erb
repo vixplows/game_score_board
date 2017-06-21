@@ -76,6 +76,8 @@
     <th>Game</th>
     <th>|</th>
     <th>Result</th>
+    <th>|</th>
+    <th>Points</th>
   </tr>
   <tr>
     <% sessions = @player.sessions %>
@@ -85,6 +87,8 @@
     <td><%= session['name'] %></td>
     <td>|</td>
     <td><%= session['tag'] %></td>
+    <td>|</td>
+    <td><%= session['points'] %></td>
   </tr>
   <% end %>
 </table>

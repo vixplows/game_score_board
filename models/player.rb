@@ -28,7 +28,9 @@ class Player
   end
 
   def play()
-    sql = "SELECT * FROM players, players_sessions WHERE players.id = #{id} AND players_sessions.player_id = players.id"
+    sql = "SELECT * FROM players_sessions
+        INNER JOIN players ON players_sessions.player_id = players.id
+        WHERE players.id = #{id} ORDER BY players_sessions.points DESC"
     plays = SqlRunner.run(sql)
     return plays.count.to_i
   end
@@ -40,7 +42,7 @@ class Player
   end
 
   def sessions
-    sql = "SELECT games.name, sessions.date, results.tag, sessions.id FROM players, games, results, players_sessions, sessions WHERE players.id = #{id} AND players.id = players_sessions.player_id AND players_sessions.session_id = sessions.id AND players_sessions.result_id = results.id AND games.id = sessions.game_id ORDER BY date DESC"
+    sql = "SELECT games.name, sessions.date, results.tag, sessions.id, players_sessions.points FROM players, games, results, players_sessions, sessions WHERE players.id = #{id} AND players.id = players_sessions.player_id AND players_sessions.session_id = sessions.id AND players_sessions.result_id = results.id AND games.id = sessions.game_id ORDER BY date DESC"
     results = SqlRunner.run(sql)
     return results.map
   end
