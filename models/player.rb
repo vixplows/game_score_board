@@ -74,13 +74,19 @@ class Player
   end
 
   def lost()
-    sql = "SELECT * FROM players, players_sessions, results WHERE players.id = #{id} AND players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Lost'"
+    sql = "SELECT * FROM players_sessions
+      INNER JOIN players ON players_sessions.player_id = players.id
+      INNER JOIN results ON players_sessions.result_id = results.id
+      WHERE players.id = #{id} AND results.tag='Lost'"
     losses = SqlRunner.run(sql)
     return losses.count
   end
 
   def drew()
-    sql = "SELECT * FROM players, players_sessions, results WHERE players.id = #{id} AND players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Drew'"
+    sql = "SELECT * FROM players_sessions
+      INNER JOIN players ON players_sessions.player_id = players.id
+      INNER JOIN results ON players_sessions.result_id = results.id
+      WHERE players.id = #{id} AND results.tag='Drew'"
     draws = SqlRunner.run(sql)
     return draws.count
   end
