@@ -5,7 +5,7 @@ require_relative('../models/type.rb')
 
 get '/games' do
   @games = Game.all()
-  games_sort = @games.sort_by!(&:name)
+  @games.sort_by!(&:name)
   erb(:"games/index")
 end
 
@@ -22,6 +22,6 @@ end
 get '/games/:id' do
   @game = Game.find(params['id'])
   @sessions = @game.session_list()
-  # @results = @game.score_cards()
+  @results = @game.score_cards()
   erb(:"games/show")
 end
