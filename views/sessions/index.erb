@@ -2,34 +2,10 @@
 
 <div id="session-wrapper">
   <% for session in @sessions %>
-
   <div class="session">
-    <h3><a href="/sessions/<%= session.id %>"><%= session.date %> : <%= session.game %></a></h3>
-
- <p></p>
- <table>
-   <tr>
-     <th>Start:</th>
-     <th>|</th>
-     <th>End:</th>
-     <th>|</th>
-     <th>Duration:</th>
-     <th>|</th>
-     <th>Action</th>
-   </tr>
-     <td><%= session.start_time %></td>
-     <td>|</td>
-     <td><%= session.end_time %></td>
-     <td>|</td>
-     <td><%= session.duration %> minutes</td>
-     <td>|</td>
-     <td><a href="/sessions/<%= session.id %>/edit">Edit Session Details</a></td>
- </table>
-
- <p></p>
- <hr>
-  <% end %>
-  <hr>
-  <h4><a href="/sessions/new">Add New Session</a></h4>
-  <hr>
+    <p></p>
+      <h3><a href="/sessions/<%= session.id %>"><%= session.date %> : <%= session.game %></a></h3>
+    <p></p>
+    <% end %>
+  </div>
 </div>

@@ -2,10 +2,30 @@
 
 <h2><%= @session.date %> : <%= @session.game %></h2>
 
-<hr>
-<p><a href="/sessions/<%= @session.id %>/player/new">Add New Player Results</a><p>
-<hr>
+<p></p>
+<table>
+  <tr>
+    <th>Start:</th>
+    <th>|</th>
+    <th>End:</th>
+    <th>|</th>
+    <th>Duration:</th>
+    <th>|</th>
+    <th>Action</th>
+  </tr>
+  <tr>
+    <td><%= @session.start_time %></td>
+    <td>|</td>
+    <td><%= @session.end_time %></td>
+    <td>|</td>
+    <td><%= @session.duration %> minutes</td>
+    <td>|</td>
+    <td><a href="/sessions/<%= @session.id %>/edit">Edit Session Details</a></td>
+  </tr>
+</table>
+<p></p>
 
+<p></p>
 <table>
   <tr>
     <th>Players</th>
@@ -28,4 +48,8 @@
   </tr>
   <% end %>
 </table>
+<p></p>
 
+<p></p>
+<p><a href="/sessions/<%= @session.id %>/player/new">Add New Player Results</a><p>
+<p></p>

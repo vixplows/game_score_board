@@ -12,6 +12,6 @@ th {
 }
 
 table {
- /* border-collapse: collapse;*/
-  border: 2px solid #ffdb58;
+  border-collapse: collapse;
+  border: 1px solid #ffdb58;
 }
