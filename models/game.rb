@@ -61,7 +61,7 @@ class Game
 
 #return number of session plays of a game.
   def sessions()
-    sql = "SELECT * FROM sessions, games WHERE sessions.game_id = games.id AND games.id = #{id}"
+    sql = "SELECT * FROM sessions INNER JOIN games ON sessions.game_id = games.id WHERE games.id = #{id}"
     sessions = SqlRunner.run(sql)
     return sessions.count
   end
