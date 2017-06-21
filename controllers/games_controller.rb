@@ -5,6 +5,7 @@ require_relative('../models/type.rb')
 
 get '/games' do
   @games = Game.all()
+  games_sort = @games.sort_by!(&:name)
   erb(:"games/index")
 end
 

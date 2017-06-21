@@ -4,7 +4,7 @@ require_relative('../models/session.rb')
 
 get '/sessions' do
   @sessions = Session.all()
-  @sessions_sort = @sessions.sort_by!(&:date).reverse!
+  sessions_sort = @sessions.sort_by!(&:date).reverse!
   @games = Game.all()
   erb(:"sessions/index")
 end

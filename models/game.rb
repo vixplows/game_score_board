@@ -66,6 +66,11 @@ class Game
     return sessions.count
   end
 
+  def delete()
+    sql = "DELETE FROM games WHERE games.id = #{id}"
+    SqlRunner.run(sql)
+  end
+
   def self.delete_all()
     sql = "DELETE FROM games"
     SqlRunner.run(sql)
