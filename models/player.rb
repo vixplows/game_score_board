@@ -27,6 +27,16 @@ class Player
     SqlRunner.run(sql)
   end
 
+  def message()
+    result = (won.to_f / play.to_f) * 100
+    if result >= 60
+      return "What a winner!"
+    elsif result >= 40
+      return "What a player!"
+    else return "What a loser!"
+    end
+  end
+
   def play()
     sql = "SELECT * FROM players_sessions
         INNER JOIN players ON players_sessions.player_id = players.id
