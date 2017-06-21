@@ -247,6 +247,33 @@ session8 = Session.new ({
 
 session8.save
 
+session9 = Session.new ({
+  "game_id" => game10.id,
+  "date" => "2015-09-10",
+  "start_time" => "20:00",
+  "end_time" => "21:00"
+  })
+
+session9.save
+
+session10 = Session.new ({
+  "game_id" => game9.id,
+  "date" => "2016-09-12",
+  "start_time" => "20:00",
+  "end_time" => "21:45"
+  })
+
+session10.save
+
+session11 = Session.new ({
+  "game_id" => game3.id,
+  "date" => "2016-09-12",
+  "start_time" => "20:00",
+  "end_time" => "21:45"
+  })
+
+session11.save
+
 player_session1 = PlayerSession.new ({
   "player_id" => player1.id,
   "session_id" => session1.id,
@@ -400,7 +427,60 @@ player_session17 = PlayerSession.new ({
 
 player_session17.save()
 
-session1.update()
+player_session18 = PlayerSession.new ({
+  "player_id" => player1.id,
+  "session_id" => session9.id,
+  "result_id" => result2.id,
+  "points" => 20
+  })
+
+player_session18.save()
+
+player_session19 = PlayerSession.new ({
+  "player_id" => player4.id,
+  "session_id" => session9.id,
+  "result_id" => result1.id,
+  "points" => 10
+  })
+
+player_session19.save()
+
+player_session20 = PlayerSession.new ({
+  "player_id" => player2.id,
+  "session_id" => session10.id,
+  "result_id" => result2.id,
+  "points" => 10
+  })
+
+player_session20.save()
+
+player_session21 = PlayerSession.new ({
+  "player_id" => player3.id,
+  "session_id" => session10.id,
+  "result_id" => result1.id,
+  "points" => 50
+  })
+
+player_session21.save()
+
+player_session22 = PlayerSession.new ({
+  "player_id" => player3.id,
+  "session_id" => session11.id,
+  "result_id" => result1.id,
+  "points" => 67
+  })
+
+player_session22.save()
+
+player_session23 = PlayerSession.new ({
+  "player_id" => player2.id,
+  "session_id" => session11.id,
+  "result_id" => result2.id,
+  "points" => 25
+  })
+
+player_session23.save()
+
 
 binding.pry
 nil
