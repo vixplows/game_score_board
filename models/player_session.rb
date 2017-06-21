@@ -24,25 +24,25 @@ class PlayerSession
   end
 
   def player()
-    sql = "SELECT players_sessions.player_id FROM players_sessions, players WHERE players_sessions.id = #{id} AND players.id = players_sessions.player_id"
+    sql = "SELECT players_sessions.player_id FROM players INNER JOIN players_sessions ON players_sessions.player_id = players.id WHERE players_sessions.id = #{id}"
     results = SqlRunner.run(sql).first
     return results['player_id'].to_i
   end
 
   def player_name()
-    sql = "SELECT players.name FROM players, players_sessions WHERE players_sessions.id = #{id} AND players.id = players_sessions.player_id"
+    sql = "SELECT players.name FROM players INNER JOIN players_sessions ON players_sessions.player_id = players.id WHERE players_sessions.id = #{id}"
     results = SqlRunner.run(sql).first
     return results['name']
   end
 
   def session()
-    sql = "SELECT players_sessions.session_id FROM players_sessions, sessions WHERE players_sessions.id = #{id} AND sessions.id = players_sessions.session_id"
+    sql = "SELECT players_sessions.session_id FROM players_sessions INNER JOIN sessions ON players_sessions.session_id = sessions.id  WHERE players_sessions.id = #{id}"
     results = SqlRunner.run(sql).first
     return results['session_id'].to_i
   end
 
   def result()
-    sql = "SELECT players_sessions.result_id FROM players_sessions, results WHERE players_sessions.id = #{id} AND results.id = players_sessions.result_id"
+    sql = "SELECT players_sessions.result_id FROM players_sessions INNER JOIN results ON players_sessions.result_id = results.id  WHERE players_sessions.id = #{id}"
     results = SqlRunner.run(sql).first
     return results['result_id'].to_i
   end
