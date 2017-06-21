@@ -9,14 +9,7 @@ select {
  padding: 5px 35px 5px 5px;
  margin: 15px 0;
  font-size: 1.0em;
-/* -webkit-appearance: none;*/
- background: url('/images/heartboardgame.png') 96% / 15% no-repeat papayawhip;
  font-family: 'Verdana', sans-serif;
  border: 1px solid #eee;
  display: block;
-} 
-
-:focus {
-  outline-color: transparent;
-  outline-style: none;
 }

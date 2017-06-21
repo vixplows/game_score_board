@@ -4,6 +4,7 @@ require_relative('../models/player.rb')
 
 get '/players' do
   @players = Player.all()
+  players = @players.sort_by!(&:name)
   erb(:"players/index")
 end
 
