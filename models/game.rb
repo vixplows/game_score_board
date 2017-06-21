@@ -24,7 +24,7 @@ class Game
   end
 
   def players
-    sql = "SELECT DISTINCT players.* FROM games, players, players_sessions, sessions WHERE games.id = #{id} AND sessions.id = players_sessions.session_id AND players.id = players_sessions.player_id AND sessions.game_id = games.id"
+    sql = "SELECT DISTINCT players.* FROM players_sessions INNER JOIN players ON players.id = players_sessions.player_id INNER JOIN sessions ON players_sessions.session_id = sessions.id INNER JOIN games ON sessions.game_id = games.id WHERE games.id = #{id}"
     SqlRunner.run(sql)
     results = SqlRunner.run(sql)
     return results.map {|player| Player.new(player)}
