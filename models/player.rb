@@ -105,7 +105,9 @@ class Player
   end
 
   def points_total
-    sql = "SELECT players_sessions.points FROM players_sessions INNER JOIN players ON players_sessions.player_id = players.id WHERE players.id = #{id}"
+    sql = "SELECT players_sessions.points FROM players_sessions
+      INNER JOIN players ON players_sessions.player_id = players.id
+      WHERE players.id = #{id}"
     results = SqlRunner.run(sql)
     sum = 0
     results.each {|session_points| sum += session_points['points'].to_i}
@@ -130,13 +132,19 @@ class Player
   end
 
   def self.wins
-  sql = "SELECT players.name, count(*) as wins FROM players, players_sessions, results WHERE players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Won' group by players.name ORDER BY wins DESC"
+  sql = "SELECT players.name, count(*) as wins FROM players_sessions
+      INNER JOIN players ON players_sessions.player_id = players.id
+      INNER JOIN results ON players_sessions.result_id = results.id
+      WHERE results.tag = 'Won' GROUP BY players.name ORDER BY wins DESC"
   winners = SqlRunner.run(sql)
   return winners
   end
 
   def self.losses
-    sql = "SELECT players.name, count(*) as losses FROM players, players_sessions, results WHERE players_sessions.player_id = players.id AND players_sessions.result_id = results.id AND results.tag = 'Lost' group by players.name ORDER BY losses DESC"
+    sql = "SELECT players.name, count(*) as losses FROM players_sessions
+        INNER JOIN players ON players_sessions.player_id = players.id
+        INNER JOIN results ON players_sessions.result_id = results.id
+        WHERE results.tag = 'Lost' GROUP BY players.name ORDER BY losses DESC"
     losers = SqlRunner.run(sql)
     return losers
   end
