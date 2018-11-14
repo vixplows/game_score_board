@@ -2,7 +2,7 @@
 
 Built as my first project at [CodeClan](https://codeclan.com/) Digital Skills Academy
 
-![](/public/images/hompage.png)
+![Homepage](public/images/homepage.png)
 
 
 ## What it does
