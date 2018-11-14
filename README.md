@@ -37,9 +37,9 @@ ruby app.rb
 ```
 
 2. Open a browser window with the URL: 
-```
+
 http://localhost:4567/
-```
+
 
 ### Database seeding
 An initial set of dummy data (db/seeds.rb) is provided to the database when installed.
