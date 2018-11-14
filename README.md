@@ -1,6 +1,6 @@
 # Game Score Board
 
-Built as my first project at [CodeClan](https://codeclan.com/) Digital Skills Academy
+Built as my first project during [CodeClan's](https://codeclan.com/) Professional Software Development Course.
 
 ![Homepage](public/images/homepage.png)
 
